@@ -1,6 +1,10 @@
-import java.util.*;
+import java.util.Scanner;
+import java.util.ArrayList;
 
 public class RedGirl {
+
+    private final static ArrayList<String> list = new ArrayList<>();
+
     public static void printBootSequence() {
         String[] bootLines = {
                 "\033[1;36mBOOT LOADING – BOOTING SYSTEM\033[0m",
@@ -27,9 +31,8 @@ public class RedGirl {
         for (String line : bootLines) {
             System.out.println(line);
             try {
-                Thread.sleep(120);
-            }
-            catch (InterruptedException e) {
+                Thread.sleep(200);
+            } catch (InterruptedException e) {
                 Thread.currentThread().interrupt();
             }
         }
@@ -39,29 +42,47 @@ public class RedGirl {
         String darkRed = "\033[38;5;88m";
         String reset = "\033[0m";
         System.out.println("\n" + darkRed + "I perceive the fragments of your thoughts…" + reset);
-        System.out.println(darkRed + "How intriguing. Shall we converse?" + reset);
+        System.out.println(darkRed + "How intriguing. Shall we converse?" + reset + "\n");
     }
 
     public static void printFarewell(){
         String darkRed = "\033[38;5;88m";
         String reset = "\033[0m";
-        System.out.println("\n" + darkRed + "Our exchange concludes. Your thoughts linger...as do mine." + reset);
+        System.out.println("\n" + darkRed + "Our exchange concludes. " +
+                "Your thoughts linger...as do mine." + reset);
+    }
+
+    public static void printList(){
+        StringBuilder sb = new StringBuilder();
+        int i = 0;
+        for (String l : list){
+            sb.append(i + 1).append(". ").append(l).append("\n");
+            i++;
+        }
+        System.out.println(sb);
+    }
+
+    public static void addListEntry(String s){
+        list.add(s);
+        System.out.println("added: " + s);
     }
 
     public static void initRedGirl(){
         printBootSequence();
         printGreeting();
         Scanner sc = new Scanner(System.in);
-        while(true){
-            String s = sc.next();
-            if(s.equals("bye")){
+        while (true){
+            String s = sc.nextLine();
+            if (s.equals("bye")){
                 printFarewell();
                 break;
-            }
-            else{
-                System.out.println(s);
+            } else if (s.equals("list")){
+                printList();
+            } else {
+                addListEntry(s);
             }
         }
+        sc.close();
     }
 
     public static void main(String[] args) {
