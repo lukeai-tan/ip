@@ -1,55 +1,70 @@
+import java.util.*;
+
 public class RedGirl {
-
-    public RedGirl(){
-        printBootSequence();
-        greet();
-        exit();
-    }
-
     public static void printBootSequence() {
         String[] bootLines = {
-                "BOOT LOADING – BOOTING SYSTEM",
+                "\033[1;36mBOOT LOADING – BOOTING SYSTEM\033[0m",
                 "Commencing System Check",
-                "Memory Unit: Green",
+                "Memory Unit: \033[32mGreen\033[0m",
                 "Initializing Tactics Log",
                 "Loading Geographic Data",
-                "Vitals: Green",
-                "Remaining MP: 100%",
-                "Black Box Temperature: Normal",
-                "Black Box Internal Pressure: Normal",
+                "Vitals: \033[32mGreen\033[0m",
+                "Remaining MP: \033[32m100%\033[0m",
+                "Black Box Temperature: \033[32mNormal\033[0m",
+                "Black Box Internal Pressure: \033[32mNormal\033[0m",
                 "Activating IFF",
                 "Activating FCS",
                 "Initializing Pod Connection",
                 "Launching DBU Setup",
                 "Activating Inertia Control System",
                 "Activating Environmental Sensors",
-                "Equipment Authentication: Complete",
-                "Equipment Status: Green",
-                "All Systems Green",
-                "Combat Preparations Complete"
+                "Equipment Authentication: \033[32mComplete\033[0m",
+                "Equipment Status: \033[32mGreen\033[0m",
+                "\033[1;32mAll Systems Green\033[0m",
+                "\033[1;32mCombat Preparations Complete\033[0m"
         };
 
         for (String line : bootLines) {
             System.out.println(line);
             try {
-                Thread.sleep(300);
-            } catch (InterruptedException e) {
+                Thread.sleep(120);
+            }
+            catch (InterruptedException e) {
                 Thread.currentThread().interrupt();
             }
         }
     }
 
-    private static void greet(){
-
-        System.out.println("\nI perceive the fragments of your thoughts…");
-        System.out.println("How intriguing. Shall we converse?");
+    public static void printGreeting(){
+        String darkRed = "\033[38;5;88m";
+        String reset = "\033[0m";
+        System.out.println("\n" + darkRed + "I perceive the fragments of your thoughts…" + reset);
+        System.out.println(darkRed + "How intriguing. Shall we converse?" + reset);
     }
 
-    private static void exit(){
-        System.out.println("\nOur exchange concludes. Your thoughts linger...as do mine.");
+    public static void printFarewell(){
+        String darkRed = "\033[38;5;88m";
+        String reset = "\033[0m";
+        System.out.println("\n" + darkRed + "Our exchange concludes. Your thoughts linger...as do mine." + reset);
+    }
+
+    public static void initRedGirl(){
+        printBootSequence();
+        printGreeting();
+        Scanner sc = new Scanner(System.in);
+        while(true){
+            String s = sc.next();
+            if(s.equals("bye")){
+                printFarewell();
+                break;
+            }
+            else{
+                System.out.println(s);
+            }
+        }
     }
 
     public static void main(String[] args) {
-        new RedGirl();
+        initRedGirl();
     }
 }
