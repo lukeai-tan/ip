@@ -39,22 +39,29 @@ public class RedGirl {
     }
 
     public static void printGreeting(){
-        String darkRed = "\033[38;5;88m";
-        String reset = "\033[0m";
-        System.out.println("\n" + darkRed + "I perceive the fragments of your thoughts…" + reset);
-        System.out.println(darkRed + "How intriguing. Shall we converse?" + reset + "\n");
+        System.out.println("\n" + convertToRedGirlTheme("""
+                I perceive the \
+                fragments of your thoughts…
+                How intriguing. Shall we converse?
+                """));
     }
 
     public static void printFarewell(){
+        System.out.println("\n" + convertToRedGirlTheme("Our exchange concludes. " +
+                "Your thoughts linger...as do mine."));
+    }
+
+    public static String convertToRedGirlTheme(String dialogue) {
         String darkRed = "\033[38;5;88m";
         String reset = "\033[0m";
-        System.out.println("\n" + darkRed + "Our exchange concludes. " +
-                "Your thoughts linger...as do mine." + reset);
+        return darkRed + dialogue + reset;
     }
 
     public static void printList(){
         StringBuilder sb = new StringBuilder();
         int i = 0;
+        System.out.println(convertToRedGirlTheme("Your tasks surface. " +
+                "Each one, a reflection of your will. We show them."));
         for (Task t : list){
             sb.append(i + 1).append(". ").append(t).append("\n");
             i++;
@@ -62,7 +69,7 @@ public class RedGirl {
         System.out.println(sb);
     }
 
-    public static void addListEntry(String s){
+    public static void addListEntry(String s) {
         Task t = new Task(s);
         list.add(t);
         System.out.println("added: " + s);
