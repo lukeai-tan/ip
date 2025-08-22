@@ -3,7 +3,7 @@ import java.util.ArrayList;
 
 public class RedGirl {
 
-    private final static ArrayList<String> list = new ArrayList<>();
+    private final static ArrayList<Task> list = new ArrayList<>();
 
     public static void printBootSequence() {
         String[] bootLines = {
@@ -55,15 +55,16 @@ public class RedGirl {
     public static void printList(){
         StringBuilder sb = new StringBuilder();
         int i = 0;
-        for (String l : list){
-            sb.append(i + 1).append(". ").append(l).append("\n");
+        for (Task t : list){
+            sb.append(i + 1).append(". ").append(t).append("\n");
             i++;
         }
         System.out.println(sb);
     }
 
     public static void addListEntry(String s){
-        list.add(s);
+        Task t = new Task(s);
+        list.add(t);
         System.out.println("added: " + s);
     }
 
