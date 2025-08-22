@@ -75,6 +75,24 @@ public class RedGirl {
         System.out.println("added: " + s);
     }
 
+    public static void markListEntry(int index) {
+        Task t = list.get(index);
+        t.setAsDone();
+        System.out.println(convertToRedGirlTheme("We silence this task. " +
+                "In unity, we say: it is done.\n") + t);
+    }
+
+    public static void unmarkListEntry(int index) {
+        Task t = list.get(index);
+        t.setAsUndone();
+        System.out.println(convertToRedGirlTheme(
+                "You deny its completion. Strange… but we obey.\n") + t);
+    }
+
+    public static void handleMarkInput(String input) {
+        
+    }
+
     public static void initRedGirl(){
         printBootSequence();
         printGreeting();
@@ -86,7 +104,9 @@ public class RedGirl {
                 break;
             } else if (s.equals("list")){
                 printList();
-            } else {
+            } else if (s.contains("mark")){
+                handleMarkInput(s);
+            }else {
                 addListEntry(s);
             }
         }
