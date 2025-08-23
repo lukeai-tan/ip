@@ -39,16 +39,12 @@ public class RedGirl {
     }
 
     public static void printGreeting(){
-        System.out.println("\n" + convertToRedGirlTheme("""
-                I perceive the \
-                fragments of your thoughts…
-                How intriguing. Shall we converse?
-                """));
+        redGirlPrint("I perceive the fragments of your thoughts…\n" +
+                "How intriguing. Shall we converse?");
     }
 
     public static void printFarewell(){
-        System.out.println("\n" + convertToRedGirlTheme("Our exchange concludes. " +
-                "Your thoughts linger...as do mine."));
+        redGirlPrint("Our exchange concludes. Your thoughts linger...as do mine.");
     }
 
     public static String convertToRedGirlTheme(String dialogue) {
@@ -57,11 +53,15 @@ public class RedGirl {
         return darkRed + dialogue + reset;
     }
 
+    public static void redGirlPrint(String dialogue) {
+        System.out.println("\n" + convertToRedGirlTheme(dialogue) + "\n");
+    }
+
     public static void printList(){
         StringBuilder sb = new StringBuilder();
         int i = 0;
-        System.out.println(convertToRedGirlTheme("Your tasks surface. " +
-                "Each one, a reflection of your will. We show them."));
+        redGirlPrint("Your tasks surface. " +
+                "Each one, a reflection of your will. We show them.");
         for (Task t : list){
             sb.append(i + 1).append(". ").append(t).append("\n");
             i++;
@@ -78,19 +78,48 @@ public class RedGirl {
     public static void markListEntry(int index) {
         Task t = list.get(index);
         t.setAsDone();
-        System.out.println(convertToRedGirlTheme("We silence this task. " +
-                "In unity, we say: it is done.\n") + t);
+        redGirlPrint("We silence this task. " +
+                "In unity, we say: it is done.");
+        System.out.println(t);
     }
 
     public static void unmarkListEntry(int index) {
         Task t = list.get(index);
         t.setAsUndone();
-        System.out.println(convertToRedGirlTheme(
-                "You deny its completion. Strange… but we obey.\n") + t);
+        redGirlPrint("You deny its completion. Strange… but we obey.");
+        System.out.println(t);
     }
 
     public static void handleMarkInput(String input) {
-        
+        String[] parts = input.split("\\s+");
+
+        if (parts.length != 2) {
+            redGirlPrint(parts.length < 2
+                    ? "Incomplete command. A fragment without form."
+                    : "Your fragment index... unreadable. Chaos in the pattern.");
+            return;
+        }
+
+        String command = parts[0];
+        int index;
+        try {
+            index = Integer.parseInt(parts[1]) - 1;
+        } catch (NumberFormatException e) {
+            redGirlPrint("Your fragment index... unreadable. Chaos in the pattern.");
+            return;
+        }
+
+        if (index < 0 || index >= list.size()) {
+            redGirlPrint("Your fragment index... unreadable. Chaos in the pattern.");
+            return;
+        }
+
+        switch (command) {
+            case "mark" -> markListEntry(index);
+            case "unmark" -> unmarkListEntry(index);
+            default -> redGirlPrint("Unknown command. Reality distorts. " +
+                    "Are you this world's Singularity?");
+        }
     }
 
     public static void initRedGirl(){
@@ -104,9 +133,9 @@ public class RedGirl {
                 break;
             } else if (s.equals("list")){
                 printList();
-            } else if (s.contains("mark")){
+            } else if (s.startsWith("mark ") || s.startsWith("unmark ")){
                 handleMarkInput(s);
-            }else {
+            } else {
                 addListEntry(s);
             }
         }
