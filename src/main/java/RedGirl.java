@@ -38,12 +38,12 @@ public class RedGirl {
         }
     }
 
-    public static void printGreeting(){
+    public static void printGreeting() {
         redGirlPrint("I perceive the fragments of your thoughts…\n" +
                 "How intriguing. Shall we converse?");
     }
 
-    public static void printFarewell(){
+    public static void printFarewell() {
         redGirlPrint("Our exchange concludes. Your thoughts linger...as do mine.");
     }
 
@@ -57,12 +57,12 @@ public class RedGirl {
         System.out.println("\n" + convertToRedGirlTheme(dialogue) + "\n");
     }
 
-    public static void printList(){
+    public static void printList() {
         StringBuilder sb = new StringBuilder();
         int i = 0;
         redGirlPrint("Your tasks surface. " +
                 "Each one, a reflection of your will. We show them.");
-        for (Task t : list){
+        for (Task t : list) {
             sb.append(i + 1).append(". ").append(t).append("\n");
             i++;
         }
@@ -90,7 +90,7 @@ public class RedGirl {
         System.out.println(t);
     }
 
-    public static void handleMarkInput(String input) {
+    public static void  handleMarkInput(String input) {
         String[] parts = input.split("\\s+");
 
         if (parts.length != 2) {
@@ -122,7 +122,17 @@ public class RedGirl {
         }
     }
 
-    public static void initRedGirl(){
+    public static void parseInput(String input) {
+        if (input.equals("list")) {
+            printList();
+        } else if (input.startsWith("mark ") || input.startsWith("unmark ")) {
+            handleMarkInput(input);
+        } else {
+            addListEntry(input);
+        }
+    }
+
+    public static void initRedGirl() {
         printBootSequence();
         printGreeting();
         Scanner sc = new Scanner(System.in);
@@ -131,12 +141,8 @@ public class RedGirl {
             if (s.equals("bye")){
                 printFarewell();
                 break;
-            } else if (s.equals("list")){
-                printList();
-            } else if (s.startsWith("mark ") || s.startsWith("unmark ")){
-                handleMarkInput(s);
             } else {
-                addListEntry(s);
+                parseInput(s);
             }
         }
         sc.close();
