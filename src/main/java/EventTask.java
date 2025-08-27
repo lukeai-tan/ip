@@ -1,6 +1,6 @@
 public class EventTask extends Task {
-    String from;
-    String to;
+    protected String from;
+    protected String to;
 
     public EventTask(String description, String from, String to) {
         super(description);
