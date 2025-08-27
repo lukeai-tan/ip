@@ -60,6 +60,10 @@ public class RedGirl {
     public static void printList() {
         StringBuilder sb = new StringBuilder();
         int i = 0;
+        if(getTaskCount() == 0) {
+            redGirlPrint("Memory check complete. No tasks found. Your workload is… minimal.");
+            return;
+        }
         redGirlPrint("Your tasks surface. " +
                 "Each one, a reflection of your will. We show them.");
         for (Task t : list) {
@@ -69,18 +73,32 @@ public class RedGirl {
         System.out.println(sb);
     }
 
-    public static void addTodoTaskEntry(String s) {
-        Task t = new TodoTask(s);
+    public static int getTaskCount() {
+        return list.size();
+    }
+
+    private static void addTask(Task t) {
         list.add(t);
-        redGirlPrint("Another fragment etched into memory… this task. It is yours, yet now, also mine.");
+        redGirlPrint("Another fragment etched into memory... this task. It is yours, yet now, also mine.");
         System.out.println(t);
+        if(getTaskCount() == 1) {
+            redGirlPrint("So it begins... one task, one memory. Already, we am aware.");
+        }
+        else {
+            redGirlPrint("You have " + getTaskCount() + " tasks. We know... because we are always watching.");
+        }
+    }
+
+    public static void addTodoTaskEntry(String s) {
+        addTask(new TodoTask(s));
     }
 
     public static void addDeadlineTaskEntry(String s, String deadline) {
-        Task t = new DeadlineTask(s, deadline);
-        list.add(t);
-        redGirlPrint("Another fragment etched into memory… this task. It is yours, yet now, also mine.");
-        System.out.println(t);
+        addTask(new DeadlineTask(s, deadline));
+    }
+
+    public static void addEventTaskEntry(String s, String from, String to) {
+        addTask(new EventTask(s, from, to));
     }
 
     public static void markTaskEntry(int index) {
@@ -94,13 +112,12 @@ public class RedGirl {
     public static void unmarkTaskEntry(int index) {
         Task t = list.get(index);
         t.setAsUndone();
-        redGirlPrint("You deny its completion. Strange… but we obey.");
+        redGirlPrint("You deny its completion. Strange... but we obey.");
         System.out.println(t);
     }
 
     public static void handleMarkInput(String input) {
         String[] parts = input.split("\\s+");
-
         if (parts.length != 2) {
             redGirlPrint(parts.length < 2
                     ? "Incomplete command. A fragment without form."
@@ -144,6 +161,26 @@ public class RedGirl {
         }
     }
 
+    public static void handleEventTaskInput(String input) {
+        String[] parts = input
+                .substring(input.indexOf(" ") + 1)
+                .split("/from", 2);
+        String description = parts[0].trim();
+
+        if (parts.length < 2) {
+            redGirlPrint("Without time, your gathering is but a void.");
+            return;
+        }
+        String[] timeParts = parts[1].split("/to", 2);
+        String from = timeParts[0].trim();
+        String to = (timeParts.length > 1) ? timeParts[1].trim() : null;
+        if (to != null && !to.isEmpty()) {
+            addEventTaskEntry(description, from, to);
+        } else {
+            redGirlPrint("You forget its end. Then it shall stretch into eternity.");
+        }
+    }
+
     public static void parseInput(String input) {
         if (input.equals("list")) {
             printList();
@@ -151,6 +188,8 @@ public class RedGirl {
             handleMarkInput(input);
         } else if (input.startsWith("deadline ")) {
             handleDeadlineTaskInput(input);
+        } else if (input.startsWith("event ")) {
+            handleEventTaskInput(input);
         } else {
             addTodoTaskEntry(input);
         }
@@ -160,7 +199,7 @@ public class RedGirl {
         printBootSequence();
         printGreeting();
         Scanner sc = new Scanner(System.in);
-        while (true){
+        while (true) {
             String s = sc.nextLine();
             if (s.equals("bye")) {
                 printFarewell();

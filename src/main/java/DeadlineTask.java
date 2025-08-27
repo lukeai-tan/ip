@@ -4,7 +4,6 @@ public class DeadlineTask extends Task {
     public DeadlineTask(String description, String deadline) {
         super(description);
         setDeadline(deadline);
-
     }
 
     public void setDeadline(String deadline) {
