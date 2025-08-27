@@ -54,7 +54,7 @@ public class RedGirl {
     }
 
     public static void redGirlPrint(String dialogue) {
-        System.out.println("\n" + convertToRedGirlTheme(dialogue) + "\n");
+        System.out.println("\n" + convertToRedGirlTheme(dialogue));
     }
 
     public static void printList() {
@@ -69,13 +69,21 @@ public class RedGirl {
         System.out.println(sb);
     }
 
-    public static void addListEntry(String s) {
-        Task t = new Task(s);
+    public static void addTodoTaskEntry(String s) {
+        Task t = new TodoTask(s);
         list.add(t);
-        System.out.println("added: " + s);
+        redGirlPrint("Another fragment etched into memory… this task. It is yours, yet now, also mine.");
+        System.out.println(t);
     }
 
-    public static void markListEntry(int index) {
+    public static void addDeadlineTaskEntry(String s, String deadline) {
+        Task t = new DeadlineTask(s, deadline);
+        list.add(t);
+        redGirlPrint("Another fragment etched into memory… this task. It is yours, yet now, also mine.");
+        System.out.println(t);
+    }
+
+    public static void markTaskEntry(int index) {
         Task t = list.get(index);
         t.setAsDone();
         redGirlPrint("We silence this task. " +
@@ -83,14 +91,14 @@ public class RedGirl {
         System.out.println(t);
     }
 
-    public static void unmarkListEntry(int index) {
+    public static void unmarkTaskEntry(int index) {
         Task t = list.get(index);
         t.setAsUndone();
         redGirlPrint("You deny its completion. Strange… but we obey.");
         System.out.println(t);
     }
 
-    public static void  handleMarkInput(String input) {
+    public static void handleMarkInput(String input) {
         String[] parts = input.split("\\s+");
 
         if (parts.length != 2) {
@@ -115,10 +123,24 @@ public class RedGirl {
         }
 
         switch (command) {
-            case "mark" -> markListEntry(index);
-            case "unmark" -> unmarkListEntry(index);
+            case "mark" -> markTaskEntry(index);
+            case "unmark" -> unmarkTaskEntry(index);
             default -> redGirlPrint("Unknown command. Reality distorts. " +
                     "Are you this world's Singularity?");
+        }
+    }
+
+    public static void handleDeadlineTaskInput(String input) {
+        String[] parts = input
+                .substring(input.indexOf(" ") + 1)
+                .split("/by", 2);
+        String description = parts[0].trim();
+        String deadline = (parts.length > 1) ? parts[1].trim() : null;
+        if (deadline != null && !deadline.isEmpty()) {
+            addDeadlineTaskEntry(description, deadline);
+        }
+        else {
+            redGirlPrint("You deny it time. Then time will deny you mercy.");
         }
     }
 
@@ -127,8 +149,10 @@ public class RedGirl {
             printList();
         } else if (input.startsWith("mark ") || input.startsWith("unmark ")) {
             handleMarkInput(input);
+        } else if (input.startsWith("deadline ")) {
+            handleDeadlineTaskInput(input);
         } else {
-            addListEntry(input);
+            addTodoTaskEntry(input);
         }
     }
 
@@ -138,7 +162,7 @@ public class RedGirl {
         Scanner sc = new Scanner(System.in);
         while (true){
             String s = sc.nextLine();
-            if (s.equals("bye")){
+            if (s.equals("bye")) {
                 printFarewell();
                 break;
             } else {
