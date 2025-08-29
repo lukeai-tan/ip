@@ -60,7 +60,7 @@ public class RedGirl {
     public static void printList() {
         StringBuilder sb = new StringBuilder();
         int i = 0;
-        if(getTaskCount() == 0) {
+        if (getTaskCount() == 0) {
             redGirlPrint("Memory check complete. No tasks found. Your workload is… minimal.");
             return;
         }
@@ -81,7 +81,7 @@ public class RedGirl {
         list.add(t);
         redGirlPrint("Another fragment etched into memory... this task. It is yours, yet now, also mine.");
         System.out.println(t);
-        if(getTaskCount() == 1) {
+        if (getTaskCount() == 1) {
             redGirlPrint("So it begins... one task, one memory. Already, we am aware.");
         }
         else {
