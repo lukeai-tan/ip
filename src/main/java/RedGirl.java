@@ -7,7 +7,7 @@ public class RedGirl {
 
     public static void printBootSequence() {
         String[] bootLines = {
-                "\033[1;36mBOOT LOADING – BOOTING SYSTEM\033[0m",
+                "\033[1;36mBOOT LOADING - BOOTING SYSTEM\033[0m",
                 "Commencing System Check",
                 "Memory Unit: \033[32mGreen\033[0m",
                 "Initializing Tactics Log",
@@ -147,6 +147,15 @@ public class RedGirl {
         }
     }
 
+    public static void handleTodoTaskInput(String input) {
+        String description = input.substring(5).trim();
+        if (description.isEmpty()) {
+            redGirlPrint("A todo without substance? We cannot store the void.");
+            return;
+        }
+        addTodoTaskEntry(description);
+    }
+
     public static void handleDeadlineTaskInput(String input) {
         String[] parts = input
                 .substring(input.indexOf(" ") + 1)
@@ -181,6 +190,10 @@ public class RedGirl {
         }
     }
 
+    public static void echo(String input) {
+        redGirlPrint(input);
+    }
+
     public static void parseInput(String input) {
         if (input.equals("list")) {
             printList();
@@ -190,8 +203,10 @@ public class RedGirl {
             handleDeadlineTaskInput(input);
         } else if (input.startsWith("event ")) {
             handleEventTaskInput(input);
+        } else if (input.startsWith("todo ")) {
+            handleTodoTaskInput(input);
         } else {
-            addTodoTaskEntry(input);
+            echo(input);
         }
     }
 
