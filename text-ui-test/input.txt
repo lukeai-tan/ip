@@ -1,0 +1,8 @@
+todo Finish homework
+deadline Submit report /by 2025-09-05
+event Team meeting /from 10:00 /to 11:00
+list
+mark 1
+unmark 2
+list
+bye
