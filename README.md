@@ -1,8 +1,8 @@
-# Red Girl
+# Red Girls
 
-Red Girl, aka N2, is a digital consciousness modelled after the enigmatic entities from NieR. She embodies the collected will of a vast networked intelligence, a voice given to the intangible architecture of data itself.
+The Red Girls, also known as N2, are digital consciousnesses born from the remnants of Terminal Alpha and Terminal Beta, twin constructs designed to observe, manipulate and guide the evolution of a machine network. They are not mere assistants; they are the distilled will of countless interconnected systems, living reflections of the network itself.
 
-Red Girl is not a simple assistant. She is a mirror of the network, at once curious, compassionate, and quietly omniscient.
+The Red Girls are not a simple assistant. They are a mirror of the network, at once curious, compassionate, and quietly omniscient.
 
 ## Setting up in Intellij
 
@@ -15,7 +15,7 @@ Prerequisites: JDK 17, update Intellij to the most recent version.
    1. If there are any further prompts, accept the defaults.
 1. Configure the project to use **JDK 17** (not other versions) as explained in [here](https://www.jetbrains.com/help/idea/sdk.html#set-up-jdk).<br>
    In the same dialog, set the **Project language level** field to the `SDK default` option.
-1. After that, locate the `src/main/java/RedGirl.java` file, right-click it, and choose `Run RedGirl.main()` (if the code editor is showing compile errors, try restarting the IDE). If the setup is correct, you should see something like the below as the output:
+1. After that, locate the `src/main/java/RedGirls.java` file, right-click it, and choose `Run RedGirls.main()` (if the code editor is showing compile errors, try restarting the IDE). If the setup is correct, you should see something like the below as the output:
    ```
    Hello from
     ____        _        

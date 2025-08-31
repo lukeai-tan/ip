@@ -1,7 +1,7 @@
 import java.util.Scanner;
 import java.util.ArrayList;
 
-public class RedGirl {
+public class RedGirls {
 
     private final static ArrayList<Task> list = new ArrayList<>();
 
