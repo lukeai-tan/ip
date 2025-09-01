@@ -52,17 +52,30 @@ public class Parser {
 
     public void parseInput(String input) {
         try {
-            if (input.equals("list")) {
-                tasks.printList();
-            } else if (input.startsWith("mark ") || input.startsWith("unmark ")) {
-                tasks.handleMarkInput(input);
-            } else if (input.startsWith("deadline ")) {
-                handleDeadlineTaskInput(input);
-            } else if (input.startsWith("event ")) {
-                handleEventTaskInput(input);
-            } else if (input.startsWith("todo ")) {
-                handleTodoTaskInput(input);
+            String command;
+            if (input.contains(" ")) {
+                command = input.substring(0, input.indexOf(" "));
             } else {
+                command = input;
+            }
+            switch (command) {
+            case "list":
+                tasks.printList();
+                break;
+            case "mark":
+            case "unmark":
+                tasks.handleMarkInput(input);
+                break;
+            case "deadline":
+                handleDeadlineTaskInput(input);
+                break;
+            case "event":
+                handleEventTaskInput(input);
+                break;
+            case "todo":
+                handleTodoTaskInput(input);
+                break;
+            default:
                 throw RedGirlsException.unknownCommand();
             }
         } catch (RedGirlsException e) {
