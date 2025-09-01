@@ -50,6 +50,18 @@ public class TaskList {
         }
     }
 
+    public static void addTodo(TodoTask task) {
+        addTask(task);
+    }
+
+    public static void addDeadline(DeadlineTask task) {
+        addTask(task);
+    }
+
+    public static void addEvent(EventTask task) {
+        addTask(task);
+    }
+
     public static void addTodoTaskEntry(String s) {
         addTask(new TodoTask(s));
     }

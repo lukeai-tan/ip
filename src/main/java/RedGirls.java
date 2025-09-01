@@ -3,7 +3,6 @@ import java.util.Scanner;
 import charisma.Dialogue;
 import intellect.Parser;
 import intellect.RedGirlsException;
-import purpose.TaskList;
 
 public class RedGirls {
     public static void initRedGirl() {
@@ -23,7 +22,7 @@ public class RedGirls {
         sc.close();
     }
 
-    public static void main(String[] args) throws RedGirlsException {
+    public static void main(String[] args) {
         initRedGirl();
     }
 }
