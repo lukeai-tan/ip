@@ -5,13 +5,11 @@ import java.util.ArrayList;
 import intellect.RedGirlsException;
 
 public class TaskList {
-    private final ArrayList<Task> tasks;
+    public static ArrayList<Task> tasks = new ArrayList<>();
 
-    public TaskList() {
-        tasks = new ArrayList<>();
-    }
+    private TaskList() {}
 
-    public int getTaskCount() {
+    public static int getTaskCount() {
         return tasks.size();
     }
 
@@ -25,7 +23,7 @@ public class TaskList {
         System.out.println("\n" + toRedGirlsString(dialogue));
     }
 
-    public void printList() {
+    public static void printList() {
         StringBuilder sb = new StringBuilder();
         int i = 0;
         if (getTaskCount() == 0) {
@@ -41,7 +39,7 @@ public class TaskList {
         System.out.println(sb);
     }
 
-    private void addTask(Task t) {
+    private static void addTask(Task t) {
         tasks.add(t);
         redGirlsPrint("Another fragment etched into memory... this task. It is yours, yet now, also mine.");
         System.out.println(t);
@@ -52,19 +50,19 @@ public class TaskList {
         }
     }
 
-    public void addTodoTaskEntry(String s) {
+    public static void addTodoTaskEntry(String s) {
         addTask(new TodoTask(s));
     }
 
-    public void addDeadlineTaskEntry(String s, String deadline) {
+    public static void addDeadlineTaskEntry(String s, String deadline) {
         addTask(new DeadlineTask(s, deadline));
     }
 
-    public void addEventTaskEntry(String s, String from, String to) {
+    public static void addEventTaskEntry(String s, String from, String to) {
         addTask(new EventTask(s, from, to));
     }
 
-    public void markTaskEntry(int index) {
+    public static void markTaskEntry(int index) {
         Task t = tasks.get(index);
         t.setAsDone();
         redGirlsPrint("We silence this task. " +
@@ -72,14 +70,14 @@ public class TaskList {
         System.out.println(t);
     }
 
-    public void unmarkTaskEntry(int index) {
+    public static void unmarkTaskEntry(int index) {
         Task t = tasks.get(index);
         t.setAsUndone();
         redGirlsPrint("You deny its completion. Strange... but we obey.");
         System.out.println(t);
     }
 
-    public void handleMarkInput(String input) throws RedGirlsException {
+    public static void handleMarkInput(String input) throws RedGirlsException {
         String[] parts = input.split("\\s+");
         if (parts.length != 2) {
             if(parts.length < 2) {

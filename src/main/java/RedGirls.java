@@ -6,14 +6,11 @@ import intellect.RedGirlsException;
 import purpose.TaskList;
 
 public class RedGirls {
-    private final static TaskList tasks = new TaskList();
-
-    public static void initRedGirl() throws RedGirlsException {
+    public static void initRedGirl() {
         Dialogue.printBootSequence();
         Dialogue.printGreeting();
         Scanner sc = new Scanner(System.in);
-        TaskList tasks = new TaskList();
-        Parser parser = new Parser(tasks);
+        Parser parser = new Parser();
         while (true) {
             String s = sc.nextLine();
             if (s.equals("bye")) {
