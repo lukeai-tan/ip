@@ -8,38 +8,18 @@ import redgirls.commands.TodoCommand;
 import redgirls.commands.MarkCommand;
 
 public class Parser {
-    public void parseInput(String input) {
-        try {
-            String command;
-            if (input.contains(" ")) {
-                command = input.substring(0, input.indexOf(" "));
-            } else {
-                command = input;
-            }
-            Command c;
-            switch (command) {
-            case "list":
-                c = new ListCommand(input);
-                break;
-            case "mark":
-            case "unmark":
-                c = new MarkCommand(input);
-                break;
-            case "deadline":
-                c = new DeadlineCommand(input);
-                break;
-            case "event":
-                c = new EventCommand(input);
-                break;
-            case "todo":
-                c = new TodoCommand(input);
-                break;
-            default:
-                throw RedGirlsException.unknownCommand();
-            }
-            c.execute();
-        } catch (RedGirlsException e) {
-            System.out.println(e.getMessage());
+    public Command parseInput(String input) throws RedGirlsException {
+        if (input == null || input.isBlank()) {
+            throw RedGirlsException.emptyInput();
         }
+        String command = input.split(" ")[0];
+        return switch (command) {
+            case "list" -> new ListCommand(input);
+            case "mark", "unmark" -> new MarkCommand(input);
+            case "deadline" -> new DeadlineCommand(input);
+            case "event" -> new EventCommand(input);
+            case "todo" -> new TodoCommand(input);
+            default -> throw RedGirlsException.unknownCommand();
+        };
     }
 }
