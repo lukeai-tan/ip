@@ -50,7 +50,7 @@ public class Parser {
         }
     }
 
-    public void parseInput(String input) throws RedGirlsException {
+    public void parseInput(String input) {
         try {
             if (input.equals("list")) {
                 tasks.printList();
