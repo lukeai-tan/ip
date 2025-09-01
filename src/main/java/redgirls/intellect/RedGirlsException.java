@@ -15,6 +15,10 @@ public class RedGirlsException extends Exception {
         return new RedGirlsException("Your fragment index... unreadable. Chaos in the pattern.");
     }
 
+    public static RedGirlsException invalidListCommand() {
+        return new RedGirlsException("List command corrupted. No fragments expected after the keyword.");
+    }
+
     public static RedGirlsException invalidMark() {
         return new RedGirlsException("Incomplete command. A mark fragment without form.");
     }
