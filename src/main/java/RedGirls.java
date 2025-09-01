@@ -116,13 +116,15 @@ public class RedGirls {
         System.out.println(t);
     }
 
-    public static void handleMarkInput(String input) {
+    public static void handleMarkInput(String input) throws RedGirlsException {
         String[] parts = input.split("\\s+");
         if (parts.length != 2) {
-            redGirlsPrint(parts.length < 2
-                    ? "Incomplete command. A fragment without form."
-                    : "Your fragment index... unreadable. Chaos in the pattern.");
-            return;
+            if(parts.length < 2) {
+                throw RedGirlsException.invalidMark();
+            }
+            else {
+                throw RedGirlsException.invalidTaskIndex();
+            }
         }
 
         String command = parts[0];
@@ -135,8 +137,7 @@ public class RedGirls {
         }
 
         if (index < 0 || index >= list.size()) {
-            redGirlsPrint("Your fragment index... unreadable. Chaos in the pattern.");
-            return;
+            throw RedGirlsException.invalidTaskIndex();
         }
 
         switch (command) {
@@ -147,16 +148,15 @@ public class RedGirls {
         }
     }
 
-    public static void handleTodoTaskInput(String input) {
+    public static void handleTodoTaskInput(String input) throws RedGirlsException {
         String description = input.substring(5).trim();
         if (description.isEmpty()) {
-            redGirlsPrint("A todo without substance? We cannot store the void.");
-            return;
+            throw RedGirlsException.invalidTodoTask();
         }
         addTodoTaskEntry(description);
     }
 
-    public static void handleDeadlineTaskInput(String input) {
+    public static void handleDeadlineTaskInput(String input) throws RedGirlsException {
         String[] parts = input
                 .substring(input.indexOf(" ") + 1)
                 .split("/by", 2);
@@ -166,19 +166,18 @@ public class RedGirls {
             addDeadlineTaskEntry(description, deadline);
         }
         else {
-            redGirlsPrint("You deny it time. Then time will deny you mercy.");
+            throw RedGirlsException.invalidDeadlineTask();
         }
     }
 
-    public static void handleEventTaskInput(String input) {
+    public static void handleEventTaskInput(String input) throws RedGirlsException {
         String[] parts = input
                 .substring(input.indexOf(" ") + 1)
                 .split("/from", 2);
         String description = parts[0].trim();
 
         if (parts.length < 2) {
-            redGirlsPrint("Without time, your gathering is but a void.");
-            return;
+            throw RedGirlsException.invalidEventTask();
         }
         String[] timeParts = parts[1].split("/to", 2);
         String from = timeParts[0].trim();
@@ -186,15 +185,11 @@ public class RedGirls {
         if (to != null && !to.isEmpty()) {
             addEventTaskEntry(description, from, to);
         } else {
-            redGirlsPrint("You forget its end. Then it shall stretch into eternity.");
+            throw RedGirlsException.missingEventEndTime();
         }
     }
 
-    public static void echo(String input) {
-        redGirlsPrint(input);
-    }
-
-    public static void parseInput(String input) {
+    public static void parseInput(String input) throws RedGirlsException {
         if (input.equals("list")) {
             printList();
         } else if (input.startsWith("mark ") || input.startsWith("unmark ")) {
@@ -206,11 +201,11 @@ public class RedGirls {
         } else if (input.startsWith("todo ")) {
             handleTodoTaskInput(input);
         } else {
-            echo(input);
+            throw RedGirlsException.unknownCommand();
         }
     }
 
-    public static void initRedGirl() {
+    public static void initRedGirl() throws RedGirlsException {
         printBootSequence();
         printGreeting();
         Scanner sc = new Scanner(System.in);
@@ -226,7 +221,7 @@ public class RedGirls {
         sc.close();
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws RedGirlsException {
         initRedGirl();
     }
 }

@@ -13,16 +13,24 @@ public class RedGirlsException extends Exception {
         return new RedGirlsException("Your fragment index... unreadable. Chaos in the pattern.");
     }
 
+    public static RedGirlsException invalidMark() {
+        return new RedGirlsException("Incomplete command. A mark fragment without form.");
+    }
+
     public static RedGirlsException invalidTodoTask() {
-        return new RedGirlsException("Incomplete command. A todo fragment without form.");
+        return new RedGirlsException("A todo without substance? We cannot store the void.");
     }
 
     public static RedGirlsException invalidDeadlineTask() {
-        return new RedGirlsException("Incomplete command. A deadline fragment without form.");
+        return new RedGirlsException("You deny it time. Then time will deny you mercy.");
     }
 
     public static RedGirlsException invalidEventTask() {
-        return new RedGirlsException("Incomplete command. An event fragment without form.");
+        return new RedGirlsException("Without time, your gathering is but a void.");
+    }
+
+    public static RedGirlsException missingEventEndTime() {
+        return new RedGirlsException("You forget its end. Then it shall stretch into eternity.");
     }
 
     public static RedGirlsException unknownCommand() {
