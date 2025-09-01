@@ -39,32 +39,32 @@ public class RedGirls {
     }
 
     public static void printGreeting() {
-        redGirlPrint("I perceive the fragments of your thoughts…\n" +
+        redGirlsPrint("I perceive the fragments of your thoughts…\n" +
                 "How intriguing. Shall we converse?");
     }
 
     public static void printFarewell() {
-        redGirlPrint("Our exchange concludes. Your thoughts linger...as do mine.");
+        redGirlsPrint("Our exchange concludes. Your thoughts linger...as do mine.");
     }
 
-    public static String convertToRedGirlTheme(String dialogue) {
+    public static String toRedGirlsString(String dialogue) {
         String darkRed = "\033[38;5;88m";
         String reset = "\033[0m";
         return darkRed + dialogue + reset;
     }
 
-    public static void redGirlPrint(String dialogue) {
-        System.out.println("\n" + convertToRedGirlTheme(dialogue));
+    public static void redGirlsPrint(String dialogue) {
+        System.out.println("\n" + toRedGirlsString(dialogue));
     }
 
     public static void printList() {
         StringBuilder sb = new StringBuilder();
         int i = 0;
         if (getTaskCount() == 0) {
-            redGirlPrint("Memory check complete. No tasks found. Your workload is… minimal.");
+            redGirlsPrint("Memory check complete. No tasks found. Your workload is… minimal.");
             return;
         }
-        redGirlPrint("Your tasks surface. " +
+        redGirlsPrint("Your tasks surface. " +
                 "Each one, a reflection of your will. We show them.");
         for (Task t : list) {
             sb.append(i + 1).append(". ").append(t).append("\n");
@@ -79,13 +79,13 @@ public class RedGirls {
 
     private static void addTask(Task t) {
         list.add(t);
-        redGirlPrint("Another fragment etched into memory... this task. It is yours, yet now, also mine.");
+        redGirlsPrint("Another fragment etched into memory... this task. It is yours, yet now, also mine.");
         System.out.println(t);
         if (getTaskCount() == 1) {
-            redGirlPrint("So it begins... one task, one memory. Already, we am aware.");
+            redGirlsPrint("So it begins... one task, one memory. Already, we am aware.");
         }
         else {
-            redGirlPrint("You have " + getTaskCount() + " tasks. We know... because we are always watching.");
+            redGirlsPrint("You have " + getTaskCount() + " tasks. We know... because we are always watching.");
         }
     }
 
@@ -104,7 +104,7 @@ public class RedGirls {
     public static void markTaskEntry(int index) {
         Task t = list.get(index);
         t.setAsDone();
-        redGirlPrint("We silence this task. " +
+        redGirlsPrint("We silence this task. " +
                 "In unity, we say: it is done.");
         System.out.println(t);
     }
@@ -112,14 +112,14 @@ public class RedGirls {
     public static void unmarkTaskEntry(int index) {
         Task t = list.get(index);
         t.setAsUndone();
-        redGirlPrint("You deny its completion. Strange... but we obey.");
+        redGirlsPrint("You deny its completion. Strange... but we obey.");
         System.out.println(t);
     }
 
     public static void handleMarkInput(String input) {
         String[] parts = input.split("\\s+");
         if (parts.length != 2) {
-            redGirlPrint(parts.length < 2
+            redGirlsPrint(parts.length < 2
                     ? "Incomplete command. A fragment without form."
                     : "Your fragment index... unreadable. Chaos in the pattern.");
             return;
@@ -130,19 +130,19 @@ public class RedGirls {
         try {
             index = Integer.parseInt(parts[1]) - 1;
         } catch (NumberFormatException e) {
-            redGirlPrint("Your fragment index... unreadable. Chaos in the pattern.");
+            redGirlsPrint("Your fragment index... unreadable. Chaos in the pattern.");
             return;
         }
 
         if (index < 0 || index >= list.size()) {
-            redGirlPrint("Your fragment index... unreadable. Chaos in the pattern.");
+            redGirlsPrint("Your fragment index... unreadable. Chaos in the pattern.");
             return;
         }
 
         switch (command) {
             case "mark" -> markTaskEntry(index);
             case "unmark" -> unmarkTaskEntry(index);
-            default -> redGirlPrint("Unknown command. Reality distorts. " +
+            default -> redGirlsPrint("Unknown command. Reality distorts. " +
                     "Are you this world's Singularity?");
         }
     }
@@ -150,7 +150,7 @@ public class RedGirls {
     public static void handleTodoTaskInput(String input) {
         String description = input.substring(5).trim();
         if (description.isEmpty()) {
-            redGirlPrint("A todo without substance? We cannot store the void.");
+            redGirlsPrint("A todo without substance? We cannot store the void.");
             return;
         }
         addTodoTaskEntry(description);
@@ -166,7 +166,7 @@ public class RedGirls {
             addDeadlineTaskEntry(description, deadline);
         }
         else {
-            redGirlPrint("You deny it time. Then time will deny you mercy.");
+            redGirlsPrint("You deny it time. Then time will deny you mercy.");
         }
     }
 
@@ -177,7 +177,7 @@ public class RedGirls {
         String description = parts[0].trim();
 
         if (parts.length < 2) {
-            redGirlPrint("Without time, your gathering is but a void.");
+            redGirlsPrint("Without time, your gathering is but a void.");
             return;
         }
         String[] timeParts = parts[1].split("/to", 2);
@@ -186,12 +186,12 @@ public class RedGirls {
         if (to != null && !to.isEmpty()) {
             addEventTaskEntry(description, from, to);
         } else {
-            redGirlPrint("You forget its end. Then it shall stretch into eternity.");
+            redGirlsPrint("You forget its end. Then it shall stretch into eternity.");
         }
     }
 
     public static void echo(String input) {
-        redGirlPrint(input);
+        redGirlsPrint(input);
     }
 
     public static void parseInput(String input) {
