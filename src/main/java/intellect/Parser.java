@@ -51,18 +51,22 @@ public class Parser {
     }
 
     public void parseInput(String input) throws RedGirlsException {
-        if (input.equals("list")) {
-            tasks.printList();
-        } else if (input.startsWith("mark ") || input.startsWith("unmark ")) {
-            tasks.handleMarkInput(input);
-        } else if (input.startsWith("deadline ")) {
-            handleDeadlineTaskInput(input);
-        } else if (input.startsWith("event ")) {
-            handleEventTaskInput(input);
-        } else if (input.startsWith("todo ")) {
-            handleTodoTaskInput(input);
-        } else {
-            throw RedGirlsException.unknownCommand();
+        try {
+            if (input.equals("list")) {
+                tasks.printList();
+            } else if (input.startsWith("mark ") || input.startsWith("unmark ")) {
+                tasks.handleMarkInput(input);
+            } else if (input.startsWith("deadline ")) {
+                handleDeadlineTaskInput(input);
+            } else if (input.startsWith("event ")) {
+                handleEventTaskInput(input);
+            } else if (input.startsWith("todo ")) {
+                handleTodoTaskInput(input);
+            } else {
+                throw RedGirlsException.unknownCommand();
+            }
+        } catch (RedGirlsException e) {
+            System.out.println(e.getMessage());
         }
     }
 }
