@@ -1,6 +1,12 @@
 import java.util.Scanner;
 import java.util.ArrayList;
 
+import intellect.RedGirlsException;
+import purpose.DeadlineTask;
+import purpose.EventTask;
+import purpose.Task;
+import purpose.TodoTask;
+
 public class RedGirls {
 
     private final static ArrayList<Task> list = new ArrayList<>();
@@ -83,8 +89,7 @@ public class RedGirls {
         System.out.println(t);
         if (getTaskCount() == 1) {
             redGirlsPrint("So it begins... one task, one memory. Already, we am aware.");
-        }
-        else {
+        } else {
             redGirlsPrint("You have " + getTaskCount() + " tasks. We know... because we are always watching.");
         }
     }
@@ -121,8 +126,7 @@ public class RedGirls {
         if (parts.length != 2) {
             if(parts.length < 2) {
                 throw RedGirlsException.invalidMark();
-            }
-            else {
+            } else {
                 throw RedGirlsException.invalidTaskIndex();
             }
         }
@@ -164,8 +168,7 @@ public class RedGirls {
         String deadline = (parts.length > 1) ? parts[1].trim() : null;
         if (deadline != null && !deadline.isEmpty()) {
             addDeadlineTaskEntry(description, deadline);
-        }
-        else {
+        } else {
             throw RedGirlsException.invalidDeadlineTask();
         }
     }
@@ -182,6 +185,7 @@ public class RedGirls {
         String[] timeParts = parts[1].split("/to", 2);
         String from = timeParts[0].trim();
         String to = (timeParts.length > 1) ? timeParts[1].trim() : null;
+        
         if (to != null && !to.isEmpty()) {
             addEventTaskEntry(description, from, to);
         } else {

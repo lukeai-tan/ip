@@ -1,3 +1,5 @@
+package intellect;
+
 public class RedGirlsException extends Exception {
     public RedGirlsException(String s) {
         super(toRedGirlsString(s));
