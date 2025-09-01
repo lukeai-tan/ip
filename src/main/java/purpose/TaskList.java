@@ -62,18 +62,6 @@ public class TaskList {
         addTask(task);
     }
 
-    public static void addTodoTaskEntry(String s) {
-        addTask(new TodoTask(s));
-    }
-
-    public static void addDeadlineTaskEntry(String s, String deadline) {
-        addTask(new DeadlineTask(s, deadline));
-    }
-
-    public static void addEventTaskEntry(String s, String from, String to) {
-        addTask(new EventTask(s, from, to));
-    }
-
     public static void markTaskEntry(int index) {
         Task t = tasks.get(index);
         t.setAsDone();

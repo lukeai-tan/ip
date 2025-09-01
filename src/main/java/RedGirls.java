@@ -2,7 +2,6 @@ import java.util.Scanner;
 
 import charisma.Dialogue;
 import intellect.Parser;
-import intellect.RedGirlsException;
 
 public class RedGirls {
     public static void initRedGirl() {

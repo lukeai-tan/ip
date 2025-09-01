@@ -1,49 +1,12 @@
 package intellect;
 
+import commands.Command;
+import commands.DeadlineCommand;
+import commands.EventCommand;
+import commands.TodoCommand;
 import purpose.TaskList;
 
 public class Parser {
-    public void handleTodoTaskInput(String input) throws RedGirlsException {
-        String description = input.substring(5).trim();
-        if (description.isEmpty()) {
-            throw RedGirlsException.invalidTodoTask();
-        }
-        TaskList.addTodoTaskEntry(description);
-    }
-
-    public void handleDeadlineTaskInput(String input) throws RedGirlsException {
-        String[] parts = input
-                .substring(input.indexOf(" ") + 1)
-                .split("/by", 2);
-        String description = parts[0].trim();
-        String deadline = (parts.length > 1) ? parts[1].trim() : null;
-        if (deadline != null && !deadline.isEmpty()) {
-            TaskList.addDeadlineTaskEntry(description, deadline);
-        } else {
-            throw RedGirlsException.invalidDeadlineTask();
-        }
-    }
-
-    public void handleEventTaskInput(String input) throws RedGirlsException {
-        String[] parts = input
-                .substring(input.indexOf(" ") + 1)
-                .split("/from", 2);
-        String description = parts[0].trim();
-
-        if (parts.length < 2) {
-            throw RedGirlsException.invalidEventTask();
-        }
-        String[] timeParts = parts[1].split("/to", 2);
-        String from = timeParts[0].trim();
-        String to = (timeParts.length > 1) ? timeParts[1].trim() : null;
-
-        if (to != null && !to.isEmpty()) {
-            TaskList.addEventTaskEntry(description, from, to);
-        } else {
-            throw RedGirlsException.missingEventEndTime();
-        }
-    }
-
     public void parseInput(String input) {
         try {
             String command;
@@ -52,6 +15,7 @@ public class Parser {
             } else {
                 command = input;
             }
+            Command c;
             switch (command) {
             case "list":
                 TaskList.printList();
@@ -61,13 +25,16 @@ public class Parser {
                 TaskList.handleMarkInput(input);
                 break;
             case "deadline":
-                handleDeadlineTaskInput(input);
+                c = new DeadlineCommand(input);
+                c.execute();
                 break;
             case "event":
-                handleEventTaskInput(input);
+                c = new EventCommand(input);
+                c.execute();
                 break;
             case "todo":
-                handleTodoTaskInput(input);
+                c = new TodoCommand(input);
+                c.execute();
                 break;
             default:
                 throw RedGirlsException.unknownCommand();
