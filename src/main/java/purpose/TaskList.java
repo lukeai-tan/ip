@@ -76,35 +76,4 @@ public class TaskList {
         redGirlsPrint("You deny its completion. Strange... but we obey.");
         System.out.println(t);
     }
-
-    public static void handleMarkInput(String input) throws RedGirlsException {
-        String[] parts = input.split("\\s+");
-        if (parts.length != 2) {
-            if(parts.length < 2) {
-                throw RedGirlsException.invalidMark();
-            } else {
-                throw RedGirlsException.invalidTaskIndex();
-            }
-        }
-
-        String command = parts[0];
-        int index;
-        try {
-            index = Integer.parseInt(parts[1]) - 1;
-        } catch (NumberFormatException e) {
-            redGirlsPrint("Your fragment index... unreadable. Chaos in the pattern.");
-            return;
-        }
-
-        if (index < 0 || index >= tasks.size()) {
-            throw RedGirlsException.invalidTaskIndex();
-        }
-
-        switch (command) {
-        case "mark" -> markTaskEntry(index);
-        case "unmark" -> unmarkTaskEntry(index);
-        default -> redGirlsPrint("Unknown command. Reality distorts. " +
-                "Are you this world's Singularity?");
-        }
-    }
 }

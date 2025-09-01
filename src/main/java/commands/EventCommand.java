@@ -5,13 +5,13 @@ import purpose.TaskList;
 import purpose.EventTask;
 
 public class EventCommand extends Command {
-    EventTask eventTask;
+    private EventTask eventTask;
 
     public EventCommand(String input) throws RedGirlsException {
         handleEventTaskInput(input);
     }
 
-    public void handleEventTaskInput(String input) throws RedGirlsException {
+    private void handleEventTaskInput(String input) throws RedGirlsException {
         String[] parts = input
                 .substring(input.indexOf(" ") + 1)
                 .split("/from", 2);

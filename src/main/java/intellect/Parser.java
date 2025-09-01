@@ -4,6 +4,7 @@ import commands.Command;
 import commands.DeadlineCommand;
 import commands.EventCommand;
 import commands.TodoCommand;
+import commands.MarkCommand;
 import purpose.TaskList;
 
 public class Parser {
@@ -22,7 +23,8 @@ public class Parser {
                 break;
             case "mark":
             case "unmark":
-                TaskList.handleMarkInput(input);
+                c = new MarkCommand(input);
+                c.execute();
                 break;
             case "deadline":
                 c = new DeadlineCommand(input);

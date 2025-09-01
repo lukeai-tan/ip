@@ -5,13 +5,13 @@ import purpose.TaskList;
 import purpose.TodoTask;
 
 public class TodoCommand extends Command {
-    TodoTask todoTask;
+    private TodoTask todoTask;
 
     public TodoCommand(String input) throws RedGirlsException {
         handleTodoTaskInput(input);
     }
 
-    public void handleTodoTaskInput(String input) throws RedGirlsException {
+    private void handleTodoTaskInput(String input) throws RedGirlsException {
         String description = input.substring(5).trim();
         if (description.isEmpty()) {
             throw RedGirlsException.invalidTodoTask();

@@ -5,13 +5,13 @@ import purpose.TaskList;
 import purpose.DeadlineTask;
 
 public class DeadlineCommand extends Command {
-    DeadlineTask deadlineTask;
+    private DeadlineTask deadlineTask;
 
     public DeadlineCommand(String input) throws RedGirlsException {
         handleDeadlineTaskInput(input);
     }
 
-    public void handleDeadlineTaskInput(String input) throws RedGirlsException {
+    private void handleDeadlineTaskInput(String input) throws RedGirlsException {
         String[] parts = input
                 .substring(input.indexOf(" ") + 1)
                 .split("/by", 2);
