@@ -1,4 +1,4 @@
-package purpose;
+package redgirls.purpose;
 
 public class TodoTask extends Task {
     public TodoTask(String description) {

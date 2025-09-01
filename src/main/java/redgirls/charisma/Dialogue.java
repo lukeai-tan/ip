@@ -1,4 +1,4 @@
-package charisma;
+package redgirls.charisma;
 
 public class Dialogue {
     public static String toRedGirlsString(String dialogue) {

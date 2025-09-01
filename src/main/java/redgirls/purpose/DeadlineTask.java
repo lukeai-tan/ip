@@ -1,4 +1,4 @@
-package purpose;
+package redgirls.purpose;
 
 public class DeadlineTask extends Task {
     protected String deadline;

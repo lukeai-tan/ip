@@ -1,11 +1,11 @@
-package intellect;
+package redgirls.intellect;
 
-import commands.Command;
-import commands.DeadlineCommand;
-import commands.EventCommand;
-import commands.TodoCommand;
-import commands.MarkCommand;
-import purpose.TaskList;
+import redgirls.commands.Command;
+import redgirls.commands.DeadlineCommand;
+import redgirls.commands.EventCommand;
+import redgirls.commands.TodoCommand;
+import redgirls.commands.MarkCommand;
+import redgirls.purpose.TaskList;
 
 public class Parser {
     public void parseInput(String input) {

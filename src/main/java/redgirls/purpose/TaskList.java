@@ -1,8 +1,6 @@
-package purpose;
+package redgirls.purpose;
 
 import java.util.ArrayList;
-
-import intellect.RedGirlsException;
 
 public class TaskList {
     public static ArrayList<Task> tasks = new ArrayList<>();

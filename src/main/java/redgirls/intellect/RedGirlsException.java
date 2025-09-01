@@ -1,4 +1,4 @@
-package intellect;
+package redgirls.intellect;
 
 public class RedGirlsException extends Exception {
     public RedGirlsException(String s) {

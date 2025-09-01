@@ -1,8 +1,8 @@
-package commands;
+package redgirls.commands;
 
-import intellect.RedGirlsException;
-import purpose.TaskList;
-import purpose.DeadlineTask;
+import redgirls.intellect.RedGirlsException;
+import redgirls.purpose.TaskList;
+import redgirls.purpose.DeadlineTask;
 
 public class DeadlineCommand extends Command {
     private DeadlineTask deadlineTask;

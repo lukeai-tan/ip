@@ -1,9 +1,9 @@
-package commands;
+package redgirls.commands;
 
-import static charisma.Dialogue.redGirlsPrint;
+import static redgirls.charisma.Dialogue.redGirlsPrint;
 
-import intellect.RedGirlsException;
-import purpose.TaskList;
+import redgirls.intellect.RedGirlsException;
+import redgirls.purpose.TaskList;
 
 public class MarkCommand extends Command {
     private String command;

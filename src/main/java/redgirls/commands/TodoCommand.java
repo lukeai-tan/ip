@@ -1,8 +1,8 @@
-package commands;
+package redgirls.commands;
 
-import intellect.RedGirlsException;
-import purpose.TaskList;
-import purpose.TodoTask;
+import redgirls.intellect.RedGirlsException;
+import redgirls.purpose.TaskList;
+import redgirls.purpose.TodoTask;
 
 public class TodoCommand extends Command {
     private TodoTask todoTask;

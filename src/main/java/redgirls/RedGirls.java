@@ -1,7 +1,9 @@
+package redgirls;
+
 import java.util.Scanner;
 
-import charisma.Dialogue;
-import intellect.Parser;
+import redgirls.charisma.Dialogue;
+import redgirls.intellect.Parser;
 
 public class RedGirls {
     public static void initRedGirl() {
