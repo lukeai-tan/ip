@@ -1,3 +1,5 @@
+package redgirls.intellect;
+
 public class RedGirlsException extends Exception {
     public RedGirlsException(String s) {
         super(toRedGirlsString(s));
@@ -9,8 +11,16 @@ public class RedGirlsException extends Exception {
         return darkRed + s + reset;
     }
 
+    public static RedGirlsException emptyInput() {
+        return new RedGirlsException("Empty input? Really? Do you think I have all day to interpret your silence?");
+    }
+
     public static RedGirlsException invalidTaskIndex() {
         return new RedGirlsException("Your fragment index... unreadable. Chaos in the pattern.");
+    }
+
+    public static RedGirlsException invalidListCommand() {
+        return new RedGirlsException("List command corrupted. No fragments expected after the keyword.");
     }
 
     public static RedGirlsException invalidMark() {
