@@ -38,13 +38,14 @@ public class MarkCommand extends Command {
     }
 
     @Override
-    public void execute() {
+    public boolean execute() {
         switch (command) {
         case "mark" -> TaskList.markTaskEntry(index);
         case "unmark" -> TaskList.unmarkTaskEntry(index);
         default -> redGirlsPrint("Unknown command. Reality distorts. " +
                 "Are you this world's Singularity?");
         }
+        return true;
     }
 
 }

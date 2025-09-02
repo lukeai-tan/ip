@@ -1,5 +1,6 @@
 package redgirls.intellect;
 
+import redgirls.commands.ByeCommand;
 import redgirls.commands.Command;
 import redgirls.commands.DeadlineCommand;
 import redgirls.commands.EventCommand;
@@ -19,6 +20,7 @@ public class Parser {
             case "deadline" -> new DeadlineCommand(input);
             case "event" -> new EventCommand(input);
             case "todo" -> new TodoCommand(input);
+            case "bye" -> new ByeCommand();
             default -> throw RedGirlsException.unknownCommand();
         };
     }

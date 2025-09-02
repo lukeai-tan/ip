@@ -15,13 +15,11 @@ public class RedGirls {
             Parser parser = new Parser();
             while (true) {
                 String s = sc.nextLine();
-                if (s.equals("bye")) {
-                    Dialogue.printFarewell();
-                    break;
-                }
                 try {
                     Command c = parser.parseInput(s);
-                    c.execute();
+                    if (!c.execute()) {
+                        break;
+                    }
                 } catch (RedGirlsException e) {
                     System.out.println(e.getMessage());
                 }

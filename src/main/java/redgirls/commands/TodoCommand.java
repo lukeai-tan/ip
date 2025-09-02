@@ -20,7 +20,8 @@ public class TodoCommand extends Command {
     }
 
     @Override
-    public void execute() {
+    public boolean execute() {
         TaskList.addTodo(todoTask);
+        return true;
     }
 }

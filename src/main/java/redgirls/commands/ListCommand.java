@@ -11,7 +11,8 @@ public class ListCommand extends Command {
     }
 
     @Override
-    public void execute() {
+    public boolean execute() {
         TaskList.printList();
+        return true;
     }
 }
