@@ -47,5 +47,4 @@ public class MarkCommand extends Command {
         }
         return true;
     }
-
 }

@@ -52,4 +52,25 @@ public class Dialogue {
     public static void printFarewell() {
         redGirlsPrint("Our exchange concludes. Your thoughts linger...as do mine.");
     }
+
+    public static void printCommandList() {
+        String commandList = """
+                [Red Girls] System Online.
+                I am here to assist... or observe.
+
+                Available commands:
+
+                  • list      : Display all current tasks. I see everything you have accumulated.
+                  • todo      : Add a simple task. Even the smallest action matters.
+                  • deadline  : Add a task with a due date. Time is relentless; do not waste it.
+                  • event     : Schedule an event. Every moment is fleeting.
+                  • mark      : Mark a task as complete. Completion... is temporary, yet necessary.
+                  • unmark    : Undo a completed task. Mistakes... are expected.
+                  • bye       : Terminate this session. I will remember nothing.
+                  • help      : Display this list again. Even I grow tired of repetition.
+
+                Use your commands wisely. Nothing lasts forever, not even this list.
+                """;
+        redGirlsPrint(commandList);
+    }
 }

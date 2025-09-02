@@ -4,6 +4,7 @@ import redgirls.commands.ByeCommand;
 import redgirls.commands.Command;
 import redgirls.commands.DeadlineCommand;
 import redgirls.commands.EventCommand;
+import redgirls.commands.HelpCommand;
 import redgirls.commands.ListCommand;
 import redgirls.commands.TodoCommand;
 import redgirls.commands.MarkCommand;
@@ -21,6 +22,7 @@ public class Parser {
             case "event" -> new EventCommand(input);
             case "todo" -> new TodoCommand(input);
             case "bye" -> new ByeCommand();
+            case "help" -> new HelpCommand();
             default -> throw RedGirlsException.unknownCommand();
         };
     }
