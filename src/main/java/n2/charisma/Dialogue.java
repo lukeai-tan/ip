@@ -1,6 +1,8 @@
 package n2.charisma;
 
 public class Dialogue {
+    private static final int BOOT_DELAY_MS = 200;
+
     public static String toRedGirlsString(String dialogue) {
         String darkRed = "\033[38;5;88m";
         String reset = "\033[0m";
@@ -37,7 +39,7 @@ public class Dialogue {
         for (String line : bootLines) {
             System.out.println(line);
             try {
-                Thread.sleep(200);
+                Thread.sleep(BOOT_DELAY_MS);
             } catch (InterruptedException e) {
                 Thread.currentThread().interrupt();
             }
