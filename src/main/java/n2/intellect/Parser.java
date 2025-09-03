@@ -1,13 +1,13 @@
-package redgirls.intellect;
+package n2.intellect;
 
-import redgirls.commands.ByeCommand;
-import redgirls.commands.Command;
-import redgirls.commands.DeadlineCommand;
-import redgirls.commands.EventCommand;
-import redgirls.commands.HelpCommand;
-import redgirls.commands.ListCommand;
-import redgirls.commands.TodoCommand;
-import redgirls.commands.MarkCommand;
+import n2.commands.ByeCommand;
+import n2.commands.Command;
+import n2.commands.DeadlineCommand;
+import n2.commands.EventCommand;
+import n2.commands.HelpCommand;
+import n2.commands.ListCommand;
+import n2.commands.TodoCommand;
+import n2.commands.MarkCommand;
 
 public class Parser {
     public Command parseInput(String input) throws RedGirlsException {

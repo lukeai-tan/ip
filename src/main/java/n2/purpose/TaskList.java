@@ -1,4 +1,4 @@
-package redgirls.purpose;
+package n2.purpose;
 
 import java.util.ArrayList;
 

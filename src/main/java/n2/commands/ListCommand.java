@@ -1,7 +1,7 @@
-package redgirls.commands;
+package n2.commands;
 
-import redgirls.intellect.RedGirlsException;
-import redgirls.purpose.TaskList;
+import n2.intellect.RedGirlsException;
+import n2.purpose.TaskList;
 
 public class ListCommand extends Command {
     public ListCommand(String input) throws RedGirlsException {

@@ -1,4 +1,4 @@
-# redgirls.RedGirls User Guide
+# n2.RedGirls User Guide
 
 // Update the title above to match the actual product name
 

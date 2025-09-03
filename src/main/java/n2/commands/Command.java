@@ -1,6 +1,6 @@
-package redgirls.commands;
+package n2.commands;
 
-import redgirls.intellect.RedGirlsException;
+import n2.intellect.RedGirlsException;
 
 public abstract class Command {
     public abstract boolean execute() throws RedGirlsException;

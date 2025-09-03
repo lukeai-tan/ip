@@ -1,11 +1,11 @@
-package redgirls;
+package n2;
 
 import java.util.Scanner;
 
-import redgirls.charisma.Dialogue;
-import redgirls.commands.Command;
-import redgirls.intellect.Parser;
-import redgirls.intellect.RedGirlsException;
+import n2.charisma.Dialogue;
+import n2.commands.Command;
+import n2.intellect.Parser;
+import n2.intellect.RedGirlsException;
 
 public class RedGirls {
     public static void initRedGirl() {

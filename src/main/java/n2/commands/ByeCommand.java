@@ -1,6 +1,6 @@
-package redgirls.commands;
+package n2.commands;
 
-import redgirls.charisma.Dialogue;
+import n2.charisma.Dialogue;
 
 public class ByeCommand extends Command {
     @Override

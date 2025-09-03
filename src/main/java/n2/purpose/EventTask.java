@@ -1,4 +1,4 @@
-package redgirls.purpose;
+package n2.purpose;
 
 public class EventTask extends Task {
     protected String from;

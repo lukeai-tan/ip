@@ -1,8 +1,8 @@
-package redgirls.commands;
+package n2.commands;
 
-import redgirls.intellect.RedGirlsException;
-import redgirls.purpose.TaskList;
-import redgirls.purpose.EventTask;
+import n2.intellect.RedGirlsException;
+import n2.purpose.TaskList;
+import n2.purpose.EventTask;
 
 public class EventCommand extends Command {
     private EventTask eventTask;

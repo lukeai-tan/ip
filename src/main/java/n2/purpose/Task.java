@@ -1,4 +1,4 @@
-package redgirls.purpose;
+package n2.purpose;
 
 public abstract class Task {
     protected String description;
