@@ -3,7 +3,7 @@ package n2.purpose;
 import java.util.ArrayList;
 
 public class TaskList {
-    public static ArrayList<Task> tasks = new ArrayList<>();
+    private final static ArrayList<Task> tasks = new ArrayList<>();
 
     private TaskList() {}
 
