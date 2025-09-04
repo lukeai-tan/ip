@@ -32,7 +32,7 @@ public class MarkCommand extends Command {
             return;
         }
 
-        if (this.index < 0 || this.index >= TaskList.getTaskCount()) {
+        if (this.index < 0 || this.index >= TaskList.size()) {
             throw RedGirlsException.invalidTaskIndex();
         }
     }

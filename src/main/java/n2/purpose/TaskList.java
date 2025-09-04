@@ -7,7 +7,7 @@ public class TaskList {
 
     private TaskList() {}
 
-    public static int getTaskCount() {
+    public static int size() {
         return tasks.size();
     }
 
@@ -24,7 +24,7 @@ public class TaskList {
     public static void printList() {
         StringBuilder sb = new StringBuilder();
         int i = 0;
-        if (getTaskCount() == 0) {
+        if (size() == 0) {
             redGirlsPrint("Memory check complete. No tasks found. Your workload is… minimal.");
             return;
         }
@@ -37,27 +37,15 @@ public class TaskList {
         System.out.println(sb);
     }
 
-    private static void addTask(Task t) {
+    public static void addTask(Task t) {
         tasks.add(t);
         redGirlsPrint("Another fragment etched into memory... this task. It is yours, yet now, also mine.");
         System.out.println(t);
-        if (getTaskCount() == 1) {
+        if (size() == 1) {
             redGirlsPrint("So it begins... one task, one memory. Already, we am aware.");
         } else {
-            redGirlsPrint("You have " + getTaskCount() + " tasks. We know... because we are always watching.");
+            redGirlsPrint("You have " + size() + " tasks. We know... because we are always watching.");
         }
-    }
-
-    public static void addTodo(TodoTask task) {
-        addTask(task);
-    }
-
-    public static void addDeadline(DeadlineTask task) {
-        addTask(task);
-    }
-
-    public static void addEvent(EventTask task) {
-        addTask(task);
     }
 
     public static void markTaskEntry(int index) {

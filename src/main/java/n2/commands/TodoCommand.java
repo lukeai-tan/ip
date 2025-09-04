@@ -21,7 +21,7 @@ public class TodoCommand extends Command {
 
     @Override
     public boolean execute() {
-        TaskList.addTodo(todoTask);
+        TaskList.addTask(todoTask);
         return true;
     }
 }

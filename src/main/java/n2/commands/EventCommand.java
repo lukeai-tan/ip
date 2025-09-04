@@ -33,7 +33,7 @@ public class EventCommand extends Command {
 
     @Override
     public boolean execute() {
-        TaskList.addEvent(eventTask);
+        TaskList.addTask(eventTask);
         return true;
     }
 }

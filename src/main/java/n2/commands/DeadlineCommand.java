@@ -26,7 +26,7 @@ public class DeadlineCommand extends Command {
 
     @Override
     public boolean execute() {
-        TaskList.addDeadline(deadlineTask);
+        TaskList.addTask(deadlineTask);
         return true;
     }
 }
