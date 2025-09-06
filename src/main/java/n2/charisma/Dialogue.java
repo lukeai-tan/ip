@@ -10,7 +10,20 @@ public class Dialogue {
     }
 
     public static void redGirlsPrint(String dialogue) {
-        System.out.println("\n" + toRedGirlsString(dialogue));
+        System.out.println();
+        typingEffectPrint(toRedGirlsString(dialogue), 5);
+        System.out.println();
+    }
+
+    public static void typingEffectPrint(String s, int duration) {
+        for(int i = 0; i < s.length(); i++) {
+            System.out.print(s.charAt(i));
+            try {
+                Thread.sleep(duration);
+            } catch (InterruptedException e) {
+                Thread.currentThread().interrupt();
+            }
+        }
     }
 
     public static void printBootSequence() {
