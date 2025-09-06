@@ -12,7 +12,11 @@ public class TodoCommand extends Command {
     }
 
     private void handleTodoTaskInput(String input) throws RedGirlsException {
+        if(input.length() <= 5) {
+            throw RedGirlsException.invalidTodoTask();
+        }
         String description = input.substring(5).trim();
+
         if (description.isEmpty()) {
             throw RedGirlsException.invalidTodoTask();
         }
