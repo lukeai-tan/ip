@@ -22,4 +22,10 @@ public class EventTask extends Task {
     public String toString() {
         return "[E]" + super.toString() + "(from: " + from + " to: " + to + " )";
     }
+
+    @Override
+    public String serialize() {
+        int doneFlag = isDone ? 1 : 0;
+        return String.format("E | %d | %s | %s-%s", doneFlag, description, from, to);
+    }
 }

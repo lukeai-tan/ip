@@ -47,4 +47,8 @@ public class RedGirlsException extends Exception {
         return new RedGirlsException("Unknown command. Reality distorts. " +
                 "Are you this world's Singularity?");
     }
+
+    public static RedGirlsException corruptedSave() {
+        return new RedGirlsException("Logic virus intrusion. Memory lost to corruption.");
+    }
 }
