@@ -10,6 +10,12 @@ public class EventTask extends Task {
         setTo(to);
     }
 
+    public EventTask(String description, String from, String to, boolean isDone) {
+        super(description, isDone);
+        this.from = from;
+        this.to = to;
+    }
+
     public void setFrom(String from) {
         this.from = from;
     }

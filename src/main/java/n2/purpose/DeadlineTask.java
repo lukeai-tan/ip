@@ -8,6 +8,11 @@ public class DeadlineTask extends Task {
         setDeadline(deadline);
     }
 
+    public DeadlineTask(String description, String deadline, boolean isDone) {
+        super(description, isDone);
+        this.deadline = deadline;
+    }
+
     public String getDeadline() {
         return deadline;
     }
