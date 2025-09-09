@@ -3,6 +3,7 @@ package n2.commands;
 import static n2.charisma.Dialogue.redGirlsPrint;
 
 import n2.intellect.RedGirlsException;
+import n2.memory.MemoryArchive;
 import n2.purpose.TaskList;
 
 public class MarkCommand extends Command {
@@ -38,13 +39,14 @@ public class MarkCommand extends Command {
     }
 
     @Override
-    public boolean execute() {
+    public boolean execute() throws RedGirlsException {
         switch (command) {
         case "mark" -> TaskList.markTaskEntry(index);
         case "unmark" -> TaskList.unmarkTaskEntry(index);
         default -> redGirlsPrint("Unknown command. Reality distorts. " +
                 "Are you this world's Singularity?");
         }
+        MemoryArchive.save(TaskList.getTaskList());
         return true;
     }
 }

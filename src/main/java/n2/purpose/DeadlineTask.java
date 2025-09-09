@@ -8,6 +8,11 @@ public class DeadlineTask extends Task {
         setDeadline(deadline);
     }
 
+    public DeadlineTask(String description, String deadline, boolean isDone) {
+        super(description, isDone);
+        this.deadline = deadline;
+    }
+
     public String getDeadline() {
         return deadline;
     }
@@ -19,5 +24,10 @@ public class DeadlineTask extends Task {
     @Override
     public String toString() {
         return "[D]" + super.toString() + " (by: " + getDeadline() + ")";
+    }
+
+    @Override
+    public String serialize() {
+        return String.format("D | %d | %s | %s", isDone ? 1 : 0, description, deadline);
     }
 }

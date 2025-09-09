@@ -4,14 +4,27 @@ import java.util.ArrayList;
 
 import n2.charisma.Dialogue;
 import n2.intellect.RedGirlsException;
+import n2.memory.MemoryArchive;
 
 public class TaskList {
-    private final static ArrayList<Task> tasks = new ArrayList<>();
+    private final static ArrayList<Task> tasks;
 
     private TaskList() {}
 
+    static {
+        try {
+            tasks = MemoryArchive.load();
+        } catch (RedGirlsException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
     public static int size() {
         return tasks.size();
+    }
+
+    public static ArrayList<Task> getTaskList() {
+        return tasks;
     }
 
     public static String toRedGirlsString(String dialogue) {
