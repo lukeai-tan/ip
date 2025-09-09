@@ -1,6 +1,6 @@
 # Java files
 *.class
-*.txt
+/data
 
 # IDEA files
 /.idea/
