@@ -15,7 +15,7 @@ import n2.purpose.TodoTask;
 
 public class MemoryArchive {
 
-    public static final String FILE_PATH = "MachineNetwork.txt";
+    public static final String FILE_PATH = "./src/main/java/data/MachineNetwork.txt";
 
     public static void save(ArrayList<Task> tasks) throws RedGirlsException {
         try {
@@ -47,7 +47,7 @@ public class MemoryArchive {
                 return new DeadlineTask(description, deadline, isDone);
 
             case "E":
-                if (parts.length < 5) {
+                if (parts.length < 4) {
                     throw RedGirlsException.invalidEventTask();
                 }
                 String[] times = parts[3].trim().split("-");
