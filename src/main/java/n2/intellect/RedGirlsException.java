@@ -43,10 +43,6 @@ public class RedGirlsException extends Exception {
         return new RedGirlsException("You forget its end. Then it shall stretch into eternity.");
     }
 
-    public static RedGirlsException invalidDelete() {
-        return new RedGirlsException("Invalid delete command.");
-    }
-
     public static RedGirlsException unknownCommand() {
         return new RedGirlsException("Unknown command. Reality distorts. " +
                 "Are you this world's Singularity?");
