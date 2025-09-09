@@ -15,7 +15,7 @@ import n2.purpose.TodoTask;
 
 public class MemoryArchive {
 
-    public static final String FILE_PATH = "./src/main/java/data/MachineNetwork.txt";
+    public static final String FILE_PATH = "./data/MachineNetwork.txt";
 
     public static void save(ArrayList<Task> tasks) throws RedGirlsException {
         try {
@@ -70,6 +70,12 @@ public class MemoryArchive {
     public static ArrayList<Task> load() throws RedGirlsException {
         ArrayList<Task> savedTasks = new ArrayList<>();
         File savefile = new File(FILE_PATH);
+        File parentDir = savefile.getParentFile();
+
+        if (parentDir != null && !parentDir.exists()) {
+            parentDir.mkdirs();
+        }
+
         if (!savefile.exists()) {
             return savedTasks;
         }
