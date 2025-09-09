@@ -88,4 +88,8 @@ public class Dialogue {
                 """;
         redGirlsPrint(commandList);
     }
+
+    public static void printDeleteTaskDialogue() {
+        redGirlsPrint("Deleted task");
+    }
 }

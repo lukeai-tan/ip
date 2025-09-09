@@ -3,6 +3,7 @@ package n2.intellect;
 import n2.commands.ByeCommand;
 import n2.commands.Command;
 import n2.commands.DeadlineCommand;
+import n2.commands.DeleteCommand;
 import n2.commands.EventCommand;
 import n2.commands.HelpCommand;
 import n2.commands.ListCommand;
@@ -21,6 +22,7 @@ public class Parser {
             case "deadline" -> new DeadlineCommand(input);
             case "event" -> new EventCommand(input);
             case "todo" -> new TodoCommand(input);
+            case "delete" -> new DeleteCommand(input);
             case "bye" -> new ByeCommand();
             case "help" -> new HelpCommand();
             default -> throw RedGirlsException.unknownCommand();
