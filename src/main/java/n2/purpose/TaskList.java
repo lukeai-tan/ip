@@ -2,6 +2,9 @@ package n2.purpose;
 
 import java.util.ArrayList;
 
+import n2.charisma.Dialogue;
+import n2.intellect.RedGirlsException;
+
 public class TaskList {
     private final static ArrayList<Task> tasks = new ArrayList<>();
 
@@ -37,15 +40,30 @@ public class TaskList {
         System.out.println(sb);
     }
 
-    public static void addTask(Task t) {
-        tasks.add(t);
-        redGirlsPrint("Another fragment etched into memory... this task. It is yours, yet now, also mine.");
-        System.out.println(t);
+    public static void checkInvalidIndex(int index) throws RedGirlsException {
+        if (index < 0 || index >= tasks.size()) {
+            throw RedGirlsException.invalidTaskIndex();
+        }
+    }
+
+    public static Task getTask(int index) throws RedGirlsException {
+        checkInvalidIndex(index);
+        return tasks.get(index);
+    }
+
+    public static void printSize() {
         if (size() == 1) {
             redGirlsPrint("So it begins... one task, one memory. Already, we am aware.");
         } else {
             redGirlsPrint("You have " + size() + " tasks. We know... because we are always watching.");
         }
+    }
+
+    public static void addTask(Task t) {
+        tasks.add(t);
+        redGirlsPrint("Another fragment etched into memory... this task. It is yours, yet now, also mine.");
+        System.out.println(t);
+        printSize();
     }
 
     public static void markTaskEntry(int index) {
@@ -62,4 +80,13 @@ public class TaskList {
         redGirlsPrint("You deny its completion. Strange... but we obey.");
         System.out.println(t);
     }
+
+    public static void deleteTask(int index) throws RedGirlsException {
+        checkInvalidIndex(index);
+        Dialogue.printDeleteTaskDialogue();
+        System.out.println(getTask(index));
+        tasks.remove(index);
+        printSize();
+    }
 }
+
