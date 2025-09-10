@@ -44,7 +44,7 @@ public class RedGirlsException extends Exception {
     }
 
     public static RedGirlsException invalidDelete() {
-        return new RedGirlsException("Invalid delete command.");
+        return new RedGirlsException("Deletion rejected. This fragment clings to the network, unwilling to vanish.");
     }
 
     public static RedGirlsException unknownCommand() {

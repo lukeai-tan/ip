@@ -90,6 +90,6 @@ public class Dialogue {
     }
 
     public static void printDeleteTaskDialogue() {
-        redGirlsPrint("Deleted task");
+        redGirlsPrint("Fragment erased. Another voice silenced in the network.");
     }
 }
