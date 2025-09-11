@@ -56,7 +56,8 @@ public class RedGirlsException extends Exception {
         return new RedGirlsException("Logic virus intrusion. Memory lost to corruption.");
     }
 
-    public static RedGirlsException unknownTaskType() {
-        return new RedGirlsException("Fragment corrupted. Logic virus prevents recognition of this task type.");
+    public static RedGirlsException unknownTaskType(String line) {
+        return new RedGirlsException("Fragment corrupted. Line: [" + line + "]. \n" +
+                "Logic virus prevents recognition of this task type.");
     }
 }
