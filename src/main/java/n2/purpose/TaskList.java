@@ -1,5 +1,7 @@
 package n2.purpose;
 
+import static n2.charisma.Dialogue.redGirlsPrint;
+
 import java.util.ArrayList;
 
 import n2.charisma.Dialogue;
@@ -25,16 +27,6 @@ public class TaskList {
 
     public static ArrayList<Task> getTaskList() {
         return tasks;
-    }
-
-    public static String toRedGirlsString(String dialogue) {
-        String darkRed = "\033[38;5;88m";
-        String reset = "\033[0m";
-        return darkRed + dialogue + reset;
-    }
-
-    public static void redGirlsPrint(String dialogue) {
-        System.out.println("\n" + toRedGirlsString(dialogue));
     }
 
     public static void printList() {
