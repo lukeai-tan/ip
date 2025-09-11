@@ -2,7 +2,7 @@
 *.class
 /data
 *.jar
-*.txt
+/release
 
 # IDEA files
 /.idea/
