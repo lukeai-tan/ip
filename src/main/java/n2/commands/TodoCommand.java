@@ -1,7 +1,6 @@
 package n2.commands;
 
 import n2.intellect.RedGirlsException;
-import n2.memory.MemoryArchive;
 import n2.purpose.TaskList;
 import n2.purpose.TodoTask;
 
@@ -27,7 +26,6 @@ public class TodoCommand extends Command {
     @Override
     public boolean execute() throws RedGirlsException {
         TaskList.addTask(todoTask);
-        MemoryArchive.save(TaskList.getTaskList());
         return true;
     }
 }

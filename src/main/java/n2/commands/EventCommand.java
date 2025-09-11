@@ -1,7 +1,6 @@
 package n2.commands;
 
 import n2.intellect.RedGirlsException;
-import n2.memory.MemoryArchive;
 import n2.purpose.TaskList;
 import n2.purpose.EventTask;
 
@@ -35,7 +34,6 @@ public class EventCommand extends Command {
     @Override
     public boolean execute() throws RedGirlsException {
         TaskList.addTask(eventTask);
-        MemoryArchive.save(TaskList.getTaskList());
         return true;
     }
 }

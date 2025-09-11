@@ -1,7 +1,6 @@
 package n2.commands;
 
 import n2.intellect.RedGirlsException;
-import n2.memory.MemoryArchive;
 import n2.purpose.TaskList;
 import n2.purpose.DeadlineTask;
 
@@ -28,7 +27,6 @@ public class DeadlineCommand extends Command {
     @Override
     public boolean execute() throws RedGirlsException {
         TaskList.addTask(deadlineTask);
-        MemoryArchive.save(TaskList.getTaskList());
         return true;
     }
 }
