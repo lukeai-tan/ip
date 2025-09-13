@@ -75,14 +75,15 @@ public class Dialogue {
 
                 Available commands:
 
-                  • list      : Display all current tasks. I see everything you have accumulated.
-                  • todo      : Add a simple task. Even the smallest action matters.
-                  • deadline  : Add a task with a due date. Time is relentless; do not waste it.
-                  • event     : Schedule an event. Every moment is fleeting.
-                  • mark      : Mark a task as complete. Completion... is temporary, yet necessary.
-                  • unmark    : Undo a completed task. Mistakes... are expected.
-                  • bye       : Terminate this session. I will remember nothing.
-                  • help      : Display this list again. Even I grow tired of repetition.
+                  ? list      : Display all current tasks. I see everything you have accumulated.
+                  ? todo      : Add a simple task. Even the smallest action matters.
+                  ? deadline  : Add a task with a due date. Time is relentless; do not waste it.
+                  ? event     : Schedule an event. Every moment is fleeting.
+                  ? mark      : Mark a task as complete. Completion... is temporary, yet necessary.
+                  ? unmark    : Undo a completed task. Mistakes... are expected.
+                  ? delete    : Remove a task entirely. Erasure... a fate more final than death.
+                  ? bye       : Terminate this session. I will remember nothing.
+                  ? help      : Display this list again. Even I grow tired of repetition.
 
                 Use your commands wisely. Nothing lasts forever, not even this list.
                 """;
