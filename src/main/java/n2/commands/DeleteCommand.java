@@ -28,14 +28,18 @@ public class DeleteCommand extends Command {
             return;
         }
 
-        if (index < 0 || index >= TaskList.size()) {
+        if (index < 0 || index >= TaskList.getSize()) {
             throw RedGirlsException.invalidTaskIndex();
         }
     }
 
     @Override
-    public boolean execute() throws RedGirlsException {
+    public void execute() throws RedGirlsException {
         TaskList.deleteTask(index);
-        return true;
+    }
+
+    @Override
+    public boolean isExit() {
+        return false;
     }
 }

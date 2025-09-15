@@ -24,8 +24,12 @@ public class TodoCommand extends Command {
     }
 
     @Override
-    public boolean execute() throws RedGirlsException {
+    public void execute() throws RedGirlsException {
         TaskList.addTask(todoTask);
-        return true;
+    }
+
+    @Override
+    public boolean isExit() {
+        return false;
     }
 }

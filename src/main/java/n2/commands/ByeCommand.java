@@ -4,8 +4,12 @@ import n2.charisma.Dialogue;
 
 public class ByeCommand extends Command {
     @Override
-    public boolean execute() {
+    public void execute() {
         Dialogue.printFarewell();
-        return false;
+    }
+
+    @Override
+    public boolean isExit() {
+        return true;
     }
 }

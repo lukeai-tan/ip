@@ -25,8 +25,12 @@ public class DeadlineCommand extends Command {
     }
 
     @Override
-    public boolean execute() throws RedGirlsException {
+    public void execute() throws RedGirlsException {
         TaskList.addTask(deadlineTask);
-        return true;
+    }
+
+    @Override
+    public boolean isExit() {
+        return false;
     }
 }

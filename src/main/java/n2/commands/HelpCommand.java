@@ -4,8 +4,12 @@ import n2.charisma.Dialogue;
 
 public class HelpCommand extends Command {
     @Override
-    public boolean execute() {
+    public void execute() {
         Dialogue.printCommandList();
-        return true;
+    }
+
+    @Override
+    public boolean isExit() {
+        return false;
     }
 }

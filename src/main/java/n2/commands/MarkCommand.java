@@ -32,19 +32,23 @@ public class MarkCommand extends Command {
             return;
         }
 
-        if (index < 0 || index >= TaskList.size()) {
+        if (index < 0 || index >= TaskList.getSize()) {
             throw RedGirlsException.invalidTaskIndex();
         }
     }
 
     @Override
-    public boolean execute() throws RedGirlsException {
+    public void execute() throws RedGirlsException {
         switch (command) {
             case "mark" -> TaskList.markTaskEntry(index);
             case "unmark" -> TaskList.unmarkTaskEntry(index);
             default -> redGirlsPrint("Unknown command. Reality distorts. " +
                     "Are you this world's Singularity?");
         }
-        return true;
+    }
+
+    @Override
+    public boolean isExit() {
+        return false;
     }
 }

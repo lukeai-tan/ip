@@ -32,8 +32,12 @@ public class EventCommand extends Command {
     }
 
     @Override
-    public boolean execute() throws RedGirlsException {
+    public void execute() throws RedGirlsException {
         TaskList.addTask(eventTask);
-        return true;
+    }
+
+    @Override
+    public boolean isExit() {
+        return false;
     }
 }

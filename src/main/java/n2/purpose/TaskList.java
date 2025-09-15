@@ -21,7 +21,7 @@ public class TaskList {
         }
     }
 
-    public static int size() {
+    public static int getSize() {
         return tasks.size();
     }
 
@@ -32,7 +32,7 @@ public class TaskList {
     public static void printList() {
         StringBuilder sb = new StringBuilder();
         int i = 0;
-        if (size() == 0) {
+        if (getSize() == 0) {
             redGirlsPrint("Memory check complete. No tasks found. Your workload is… minimal.");
             return;
         }
@@ -57,10 +57,10 @@ public class TaskList {
     }
 
     public static void printSize() {
-        if (size() == 1) {
+        if (getSize() == 1) {
             redGirlsPrint("So it begins... one task, one memory. Already, we am aware.");
         } else {
-            redGirlsPrint("You have " + size() + " tasks. We know... because we are always watching.");
+            redGirlsPrint("You have " + getSize() + " tasks. We know... because we are always watching.");
         }
     }
 
