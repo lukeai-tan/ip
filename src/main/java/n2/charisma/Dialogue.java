@@ -2,6 +2,7 @@ package n2.charisma;
 
 public class Dialogue {
     private static final int BOOT_DELAY_MS = 200;
+    private static final int TYPING_DELAY_MS = 5;
 
     public static String toRedGirlsString(String dialogue) {
         String darkRed = "\033[38;5;88m";
@@ -11,7 +12,7 @@ public class Dialogue {
 
     public static void redGirlsPrint(String dialogue) {
         System.out.println();
-        typingEffectPrint(toRedGirlsString(dialogue), 5);
+        typingEffectPrint(toRedGirlsString(dialogue), TYPING_DELAY_MS);
         System.out.println();
     }
 

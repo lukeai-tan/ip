@@ -14,22 +14,21 @@ public class DeleteCommand extends Command {
 
     public void handleDeleteTaskInput(String input) throws RedGirlsException {
         String[] parts = input.split("\\s+");
-        if (parts.length != 2) {
-            if(parts.length < 2) {
-                throw RedGirlsException.invalidDelete();
-            } else {
-                throw RedGirlsException.invalidTaskIndex();
-            }
+        if (parts.length < 2) {
+            throw RedGirlsException.invalidDelete();
+        }
+        if (parts.length > 2) {
+            throw RedGirlsException.invalidTaskIndex();
         }
 
         try {
-            this.index = Integer.parseInt(parts[1]) - 1;
+            index = Integer.parseInt(parts[1]) - 1;
         } catch (NumberFormatException e) {
             redGirlsPrint("Your fragment index... unreadable. Chaos in the pattern.");
             return;
         }
 
-        if (this.index < 0 || this.index >= TaskList.size()) {
+        if (index < 0 || index >= TaskList.size()) {
             throw RedGirlsException.invalidTaskIndex();
         }
     }

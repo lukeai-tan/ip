@@ -23,16 +23,16 @@ public class MarkCommand extends Command {
             }
         }
 
-        this.command = parts[0];
+        command = parts[0];
 
         try {
-            this.index = Integer.parseInt(parts[1]) - 1;
+            index = Integer.parseInt(parts[1]) - 1;
         } catch (NumberFormatException e) {
             redGirlsPrint("Your fragment index... unreadable. Chaos in the pattern.");
             return;
         }
 
-        if (this.index < 0 || this.index >= TaskList.size()) {
+        if (index < 0 || index >= TaskList.size()) {
             throw RedGirlsException.invalidTaskIndex();
         }
     }
@@ -40,10 +40,10 @@ public class MarkCommand extends Command {
     @Override
     public boolean execute() throws RedGirlsException {
         switch (command) {
-        case "mark" -> TaskList.markTaskEntry(index);
-        case "unmark" -> TaskList.unmarkTaskEntry(index);
-        default -> redGirlsPrint("Unknown command. Reality distorts. " +
-                "Are you this world's Singularity?");
+            case "mark" -> TaskList.markTaskEntry(index);
+            case "unmark" -> TaskList.unmarkTaskEntry(index);
+            default -> redGirlsPrint("Unknown command. Reality distorts. " +
+                    "Are you this world's Singularity?");
         }
         return true;
     }
