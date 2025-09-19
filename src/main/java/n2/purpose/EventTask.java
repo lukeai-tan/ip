@@ -1,5 +1,7 @@
 package n2.purpose;
 
+import n2.intellect.DateConverter;
+
 public class EventTask extends Task {
     protected String from;
     protected String to;
@@ -26,7 +28,8 @@ public class EventTask extends Task {
 
     @Override
     public String toString() {
-        return "[E]" + super.toString() + " (from: " + from + " to: " + to + " )";
+        return "[E]" + super.toString() + " (from: " + DateConverter.formatDateTime(from) +
+                " to: " + DateConverter.formatDateTime(to) + " )";
     }
 
     @Override
