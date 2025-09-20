@@ -97,7 +97,7 @@ public class TaskList {
 
     public static void printFilteredList(String keyword) {
         ArrayList<Task> filteredList = tasks.stream()
-                .filter(t -> t.toString().contains(keyword.toLowerCase()))
+                .filter(t -> t.description.contains(keyword.toLowerCase()))
                 .collect(Collectors.toCollection(ArrayList::new));
         if (filteredList.isEmpty()) {
             redGirlsPrint("No fragments matching \"" + keyword + "\" were found. Silence echoes.");

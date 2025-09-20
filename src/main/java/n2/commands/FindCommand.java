@@ -18,7 +18,6 @@ public class FindCommand extends Command {
         keyword = parts[1].trim();
     }
 
-
     @Override
     public void execute() {
         TaskList.printFilteredList(keyword);
