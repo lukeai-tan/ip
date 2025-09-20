@@ -3,6 +3,7 @@ package n2.purpose;
 import static n2.charisma.Dialogue.redGirlsPrint;
 
 import java.util.ArrayList;
+import java.util.stream.Collectors;
 
 import n2.charisma.Dialogue;
 import n2.intellect.RedGirlsException;
@@ -92,6 +93,23 @@ public class TaskList {
         System.out.println(getTask(index));
         tasks.remove(index);
         printSize();
+    }
+
+    public static void printFilteredList(String keyword) {
+        ArrayList<Task> filteredList = tasks.stream()
+                .filter(t -> t.toString().contains(keyword.toLowerCase()))
+                .collect(Collectors.toCollection(ArrayList::new));
+        if (filteredList.isEmpty()) {
+            redGirlsPrint("No fragments matching \"" + keyword + "\" were found. Silence echoes.");
+            return;
+        }
+        redGirlsPrint("Fragments containing \"" + keyword + "\" reveal themselves. Observe carefully:");
+
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < filteredList.size(); i++) {
+            sb.append(i + 1).append(". ").append(filteredList.get(i)).append("\n");
+        }
+        System.out.println(sb);
     }
 }
 
