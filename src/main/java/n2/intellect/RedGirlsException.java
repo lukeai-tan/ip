@@ -47,6 +47,10 @@ public class RedGirlsException extends Exception {
         return new RedGirlsException("Deletion rejected. This fragment clings to the network, unwilling to vanish.");
     }
 
+    public static RedGirlsException invalidKeyword() {
+        return new RedGirlsException("Your keyword is meaningless. I cannot waste cycles deciphering nonsense.");
+    }
+
     public static RedGirlsException unknownCommand() {
         return new RedGirlsException("Unknown command. Reality distorts. " +
                 "Are you this world's Singularity?");
