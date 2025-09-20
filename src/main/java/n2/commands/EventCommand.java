@@ -25,11 +25,8 @@ public class EventCommand extends Command {
         String from = timeParts[0].trim();
         String to = (timeParts.length > 1) ? timeParts[1].trim() : null;
 
-        Object parsedFrom = DateConverter.parseDateTime(from);
-        Object parsedTo = DateConverter.parseDateTime(to);
-
-        from = DateConverter.formatDateTime(parsedFrom);
-        to = DateConverter.formatDateTime(parsedTo);
+        from = DateConverter.handleDateTimeParsing(from);
+        to = DateConverter.handleDateTimeParsing(to);
 
         if (to != null && !to.isEmpty()) {
             eventTask = new EventTask(description, from, to);

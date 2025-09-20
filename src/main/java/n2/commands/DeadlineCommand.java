@@ -19,8 +19,7 @@ public class DeadlineCommand extends Command {
         String description = parts[0].trim();
         String deadline = (parts.length > 1) ? parts[1].trim() : null;
 
-        Object parsedDeadline = DateConverter.parseDateTime(deadline);
-        deadline = DateConverter.formatDateTime(parsedDeadline);
+        deadline = DateConverter.handleDateTimeParsing(deadline);
 
         if (deadline != null && !deadline.isEmpty()) {
             deadlineTask = new DeadlineTask(description, deadline);

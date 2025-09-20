@@ -87,4 +87,9 @@ public class DateConverter {
             return (String) date;
         }
     }
+
+    public static String handleDateTimeParsing(String input) {
+        Object parsedInput = parseDateTime(input);
+        return formatDateTime(parsedInput);
+    }
 }
