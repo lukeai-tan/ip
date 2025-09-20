@@ -1,6 +1,5 @@
 package n2.commands;
 
-import n2.intellect.DateConverter;
 import n2.intellect.RedGirlsException;
 import n2.purpose.TaskList;
 import n2.purpose.DeadlineTask;
@@ -18,9 +17,6 @@ public class DeadlineCommand extends Command {
                 .split("/by", 2);
         String description = parts[0].trim();
         String deadline = (parts.length > 1) ? parts[1].trim() : null;
-
-        Object parsedDeadline = DateConverter.parseDateTime(deadline);
-        deadline = DateConverter.formatDateTime(parsedDeadline);
 
         if (deadline != null && !deadline.isEmpty()) {
             deadlineTask = new DeadlineTask(description, deadline);

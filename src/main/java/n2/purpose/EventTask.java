@@ -1,7 +1,5 @@
 package n2.purpose;
 
-import n2.intellect.DateConverter;
-
 public class EventTask extends Task {
     protected String from;
     protected String to;

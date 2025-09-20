@@ -1,6 +1,5 @@
 package n2.commands;
 
-import n2.intellect.DateConverter;
 import n2.intellect.RedGirlsException;
 import n2.purpose.TaskList;
 import n2.purpose.EventTask;
@@ -24,12 +23,6 @@ public class EventCommand extends Command {
         String[] timeParts = parts[1].split("/to", 2);
         String from = timeParts[0].trim();
         String to = (timeParts.length > 1) ? timeParts[1].trim() : null;
-
-        Object parsedFrom = DateConverter.parseDateTime(from);
-        Object parsedTo = DateConverter.parseDateTime(to);
-
-        from = DateConverter.formatDateTime(parsedFrom);
-        to = DateConverter.formatDateTime(parsedTo);
 
         if (to != null && !to.isEmpty()) {
             eventTask = new EventTask(description, from, to);
