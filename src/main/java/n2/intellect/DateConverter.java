@@ -32,12 +32,6 @@ public class DateConverter {
             DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm", Locale.US),
             DateTimeFormatter.ofPattern("dd-MM-yyyy hh:mma", Locale.US),
 
-            // dot time style
-            DateTimeFormatter.ofPattern("yyyy/MM/dd h.mma", Locale.US),
-            DateTimeFormatter.ofPattern("dd/MM/yyyy h.mma", Locale.US),
-            DateTimeFormatter.ofPattern("yyyy-MM-dd h.mma", Locale.US),
-            DateTimeFormatter.ofPattern("dd-MM-yyyy h.mma", Locale.US),
-
             // month as month names
             DateTimeFormatter.ofPattern("dd MMM yyyy HH:mm", Locale.US),
             DateTimeFormatter.ofPattern("dd MMM yyyy hh:mma", Locale.US),
@@ -56,10 +50,6 @@ public class DateConverter {
             DateTimeFormatter.ofPattern("d MMM yyyy, h:mma", Locale.US);
 
     public static Object parseDateTime(String rawDateString) {
-        rawDateString = rawDateString
-                .replaceAll("(?i)am", "AM")
-                .replaceAll("(?i)pm", "PM");
-
         for (DateTimeFormatter pattern : DATE_TIME_PATTERNS) {
             try {
                 return LocalDateTime.parse(rawDateString, pattern);
