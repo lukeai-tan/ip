@@ -8,6 +8,8 @@ import n2.purpose.TaskList;
  * a specific keyword in their descriptions.
  *
  * <p>When executed, it prints all matching tasks via {@link TaskList#printFilteredList(String)}</p>
+ *
+ * <p>Usage: {@code find <keyword>}</p>
  */
 public class FindCommand extends Command {
     /**

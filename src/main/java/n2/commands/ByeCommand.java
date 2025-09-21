@@ -9,6 +9,7 @@ import n2.charisma.Dialogue;
  * When executed, it prints a farewell message and signals that the
  * program should exit.
  * </p>
+ * <p>Usage: {@code bye</p>
  */
 public class ByeCommand extends Command {
     /**

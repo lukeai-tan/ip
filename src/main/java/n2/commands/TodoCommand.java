@@ -10,6 +10,10 @@ import n2.purpose.TodoTask;
  *
  * <p>When executed, this task is appended to the list and the user receives
  * a confirmation message.</p>
+ *
+ * <p>
+ * Usage: {@code todo <description>}
+ * </p>
  */
 public class TodoCommand extends Command {
     /**

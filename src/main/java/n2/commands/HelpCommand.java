@@ -8,6 +8,7 @@ import n2.charisma.Dialogue;
  * <p>
  * When executed, it prints the command list via {@link Dialogue#printCommandList()}.
  * </p>
+ * <p>Usage: {@code help}</p>
  */
 public class HelpCommand extends Command {
     /**
