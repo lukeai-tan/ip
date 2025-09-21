@@ -9,6 +9,13 @@ import n2.charisma.Dialogue;
 import n2.intellect.RedGirlsException;
 import n2.memory.MemoryArchive;
 
+/**
+ * Manages a list of {@link Task} objects. <br>
+ * The task list loads its task data from the {@link MemoryArchive} at class initialization
+ * and provides operations for adding, deleting, updating, retrieving and printing tasks.
+ *
+ * <p>This class is static-only and cannot be instantiated.</p>
+ */
 public class TaskList {
     private final static ArrayList<Task> tasks;
 
@@ -22,14 +29,28 @@ public class TaskList {
         }
     }
 
+    /**
+     * Returns the current number of tasks in the list
+     *
+     * @return total number of tasks
+     */
     public static int getSize() {
         return tasks.size();
     }
 
+    /**
+     * Returns the underlying task list
+     *
+     * @return reference to the list of tasks
+     */
     public static ArrayList<Task> getTaskList() {
         return tasks;
     }
 
+    /**
+     * Prints the complete task list to standard output. <br>
+     * If there are no tasks, a special message indicating an empty workload is displayed.
+     */
     public static void printList() {
         StringBuilder sb = new StringBuilder();
         int i = 0;
@@ -46,17 +67,35 @@ public class TaskList {
         System.out.println(sb);
     }
 
+    /**
+     * Validates that the given index refers to a valid task in the task list
+     *
+     * @param index position in the task list
+     * @throws RedGirlsException if the index is out of range
+     */
     public static void checkInvalidIndex(int index) throws RedGirlsException {
         if (index < 0 || index >= tasks.size()) {
             throw RedGirlsException.invalidTaskIndex();
         }
     }
 
+    /**
+     * Retrieves the task at the specified index
+     *
+     * @param index position of the task (0-indexing)
+     * @return the {@link Task} at the specified index
+     * @throws RedGirlsException if the index is invalid
+     */
     public static Task getTask(int index) throws RedGirlsException {
         checkInvalidIndex(index);
         return tasks.get(index);
     }
 
+    /**
+     * Prints the current size of the task list. <br>
+     * Dedicated messages are displayed for cases when the task list only contains
+     * one task or multiple tasks.
+     */
     public static void printSize() {
         if (getSize() == 1) {
             redGirlsPrint("So it begins... one task, one memory. Already, we am aware.");
@@ -65,6 +104,12 @@ public class TaskList {
         }
     }
 
+    /**
+     * Adds a new task to the list, prints a confirmation message,
+     * and displays the updated task list size.
+     *
+     * @param t the task to be added
+     */
     public static void addTask(Task t) {
         tasks.add(t);
         redGirlsPrint("Another fragment etched into memory... this task. It is yours, yet now, also mine.");
@@ -72,6 +117,11 @@ public class TaskList {
         printSize();
     }
 
+    /**
+     * Marks the task at the given index as done
+     *
+     * @param index position of the task to mark (0-indexing)
+     */
     public static void markTaskEntry(int index) {
         Task t = tasks.get(index);
         t.setAsDone();
@@ -80,6 +130,11 @@ public class TaskList {
         System.out.println(t);
     }
 
+    /**
+     * Marks the task at the given index as not done
+     *
+     * @param index position of the task to unmark (0-indexing)
+     */
     public static void unmarkTaskEntry(int index) {
         Task t = tasks.get(index);
         t.setAsUndone();
@@ -87,6 +142,13 @@ public class TaskList {
         System.out.println(t);
     }
 
+    /**
+     * Deletes the task at the specified index from the task list,
+     * printing a confirmation message and the updated size.
+     *
+     * @param index position of the task to delete (0-indexing)
+     * @throws RedGirlsException if the index is invalid
+     */
     public static void deleteTask(int index) throws RedGirlsException {
         checkInvalidIndex(index);
         Dialogue.printDeleteTaskDialogue();
@@ -95,6 +157,12 @@ public class TaskList {
         printSize();
     }
 
+    /**
+     * Prints all tasks containing the given keyword in their description. <br>
+     * The search is case-insensitive.
+     *
+     * @param keyword string to filter tasks by
+     */
     public static void printFilteredList(String keyword) {
         ArrayList<Task> filteredList = tasks.stream()
                 .filter(t -> t.description.contains(keyword.toLowerCase()))
