@@ -36,7 +36,7 @@ public class EventCommand extends Command {
     }
 
     @Override
-    public void execute() throws RedGirlsException {
+    public void execute() {
         TaskList.addTask(eventTask);
     }
 

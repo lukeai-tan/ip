@@ -29,7 +29,7 @@ public class DeadlineCommand extends Command {
     }
 
     @Override
-    public void execute() throws RedGirlsException {
+    public void execute() {
         TaskList.addTask(deadlineTask);
     }
 
