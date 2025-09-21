@@ -11,8 +11,10 @@ import n2.purpose.TaskList;
  */
 public class ListCommand extends Command {
     /**
-     * Creates a new {@code ListCommand} and validates the input. <br>
+     * Creates a new {@code ListCommand} and validates the input.
+     * <p>
      * The input must exactly match {@code "list"}.
+     * </p>
      *
      * @param input raw user input
      * @throws RedGirlsException if the input is not exactly "list"
@@ -24,8 +26,10 @@ public class ListCommand extends Command {
     }
 
     /**
-     * Executes the {@code list} command. <br>
+     * Executes the {@code list} command.
+     * <p>
      * Prints all tasks in {@link TaskList} to standard output.
+     * </p>
      */
     @Override
     public void execute() {

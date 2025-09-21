@@ -9,8 +9,8 @@ import n2.intellect.RedGirlsException;
  *
  * <p>Subclasses must implement:
  * <ul>
- *     <li>{@link #execute()} – performs the action defined by the command</li>
- *     <li>{@link #isExit()} – indicates whether the command ends the program</li>
+ *     <li>{@link #execute()} - performs the action defined by the command</li>
+ *     <li>{@link #isExit()} - indicates whether the command ends the program</li>
  * </ul>
  * </p>
  *

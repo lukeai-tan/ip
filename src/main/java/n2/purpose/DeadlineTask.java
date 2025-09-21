@@ -15,8 +15,10 @@ public class DeadlineTask extends Task {
     protected String deadline;
 
     /**
-     * Creates a new {@code DeadlineTask} with the given description and deadline. <br>
+     * Creates a new {@code DeadlineTask} with the given description and deadline.
+     * <p>
      * By default, the task is marked as not done.
+     * </p>
      *
      * @param description description of the task
      * @param deadline the due date or time
@@ -59,7 +61,7 @@ public class DeadlineTask extends Task {
 
     /**
      * Returns a string representation of this deadline task,
-     * including its type, status, description, and deadline. <br>
+     * including its type, status, description, and deadline.
      *
      * @return formatted string for display
      */
@@ -69,9 +71,11 @@ public class DeadlineTask extends Task {
     }
 
     /**
-     * Serializes this deadline task into a compact string format suitable for storage. <br>
+     * Serializes this deadline task into a compact string format suitable for storage.
+     * <p>
      * Format: {@code D | <done-flag> | <description> | <deadline>} <br>
      * where {@code <done-flag>} is {@code 1} if done and {@code 0} if not.
+     * </p>
      *
      * @return serialized string representation of the deadline task
      */

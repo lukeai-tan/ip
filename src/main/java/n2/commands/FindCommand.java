@@ -16,8 +16,10 @@ public class FindCommand extends Command {
     private String keyword;
 
     /**
-     * Creates a new {@code FindCommand} by parsing the raw user input. <br>
+     * Creates a new {@code FindCommand} by parsing the raw user input.
+     * <p>
      * Extracts the keyword used for searching tasks.
+     * </p>
      *
      * @param input raw user input (e.g. "find homework")
      * @throws RedGirlsException if the keyword is missing, empty or whitespace
@@ -27,8 +29,10 @@ public class FindCommand extends Command {
     }
 
     /**
-     * Parses the user input to extract the search keyword. <br>
+     * Parses the user input to extract the search keyword.
+     * <p>
      * Expects the input to have the format: {@code find <keyword>}.
+     * </p>
      *
      * @param input raw input string
      * @throws RedGirlsException if invalid keyword is provided
@@ -42,8 +46,10 @@ public class FindCommand extends Command {
     }
 
     /**
-     * Executes the {@code find} command. <br>
+     * Executes the {@code find} command.
+     * <p>
      * Prints all tasks containing the specified keyword.
+     * </p>
      */
     @Override
     public void execute() {

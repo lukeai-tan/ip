@@ -18,8 +18,10 @@ public class TodoCommand extends Command {
     private TodoTask todoTask;
 
     /**
-     * Creates a new {@code TodoCommand} by parsing the raw user input. <br>
+     * Creates a new {@code TodoCommand} by parsing the raw user input.
+     * <p>
      * Expects input in the format: {@code todo <description>}.
+     * </p>
      *
      * @param input raw user input
      * @throws RedGirlsException if the description is missing or empty
@@ -29,8 +31,10 @@ public class TodoCommand extends Command {
     }
 
     /**
-     * Parses the user input to extract the description and creates a {@link TodoTask}. <br>
+     * Parses the user input to extract the description and creates a {@link TodoTask}.
+     * <p>
      * Validates that the input contains a non-empty description.
+     * </p>
      *
      * @param input raw input string
      * @throws RedGirlsException if the description is missing or empty
@@ -48,8 +52,10 @@ public class TodoCommand extends Command {
     }
 
     /**
-     * Executes the {@code todo} command. <br>
+     * Executes the {@code todo} command.
+     * <p>
      * Adds the {@link TodoTask} to {@link TaskList} and prints a confirmation message.
+     * </p>
      */
     @Override
     public void execute() {

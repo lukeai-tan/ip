@@ -10,9 +10,11 @@ import n2.intellect.RedGirlsException;
 import n2.memory.MemoryArchive;
 
 /**
- * Manages a list of {@link Task} objects. <br>
+ * Manages a list of {@link Task} objects.
+ * <p>
  * The task list loads its task data from the {@link MemoryArchive} at class initialization
  * and provides operations for adding, deleting, updating, retrieving and printing tasks.
+ * </p>
  *
  * <p>This class is static-only and cannot be instantiated.</p>
  */
@@ -48,8 +50,10 @@ public class TaskList {
     }
 
     /**
-     * Prints the complete task list to standard output. <br>
+     * Prints the complete task list to standard output.
+     * <p>
      * If there are no tasks, a special message indicating an empty workload is displayed.
+     * </p>
      */
     public static void printList() {
         StringBuilder sb = new StringBuilder();
@@ -92,9 +96,12 @@ public class TaskList {
     }
 
     /**
-     * Prints the current size of the task list. <br>
+     * Prints the current size of the task list.
+     *
+     * <p>
      * Dedicated messages are displayed for cases when the task list only contains
      * one task or multiple tasks.
+     * </p>
      */
     public static void printSize() {
         if (getSize() == 1) {
@@ -158,8 +165,11 @@ public class TaskList {
     }
 
     /**
-     * Prints all tasks containing the given keyword in their description. <br>
+     * Prints all tasks containing the given keyword in their description.
+     *
+     * <p>
      * The search is case-insensitive.
+     * </p>
      *
      * @param keyword string to filter tasks by
      */
