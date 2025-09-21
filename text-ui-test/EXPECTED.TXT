@@ -25,33 +25,67 @@ How intriguing. Shall we converse?[0m
 [T][ ] Finish homework
 
 [38;5;88mSo it begins... one task, one memory. Already, we am aware.[0m
+[38;5;88mA todo without substance? We cannot store the void.[0m
 
 [38;5;88mAnother fragment etched into memory... this task. It is yours, yet now, also mine.[0m
-[D][ ] Submit report (by: 2025-09-05)
+[D][ ] Submit report (by: 5 Sep 2025)
 
 [38;5;88mYou have 2 tasks. We know... because we are always watching.[0m
+[38;5;88mYou deny it time. Then time will deny you mercy.[0m
 
 [38;5;88mAnother fragment etched into memory... this task. It is yours, yet now, also mine.[0m
-[E][ ] Team meeting(from: 10:00 to: 11:00 )
+[E][ ] Team meeting (from: 10:00 to: 11:00)
 
 [38;5;88mYou have 3 tasks. We know... because we are always watching.[0m
+[38;5;88mWithout time, your gathering is but a void.[0m
+[38;5;88mWithout time, your gathering is but a void.[0m
 
 [38;5;88mYour tasks surface. Each one, a reflection of your will. We show them.[0m
 1. [T][ ] Finish homework
-2. [D][ ] Submit report (by: 2025-09-05)
-3. [E][ ] Team meeting(from: 10:00 to: 11:00 )
+2. [D][ ] Submit report (by: 5 Sep 2025)
+3. [E][ ] Team meeting (from: 10:00 to: 11:00)
 
 
 [38;5;88mWe silence this task. In unity, we say: it is done.[0m
 [T][X] Finish homework
 
 [38;5;88mYou deny its completion. Strange... but we obey.[0m
-[D][ ] Submit report (by: 2025-09-05)
+[D][ ] Submit report (by: 5 Sep 2025)
 
-[38;5;88mYour tasks surface. Each one, a reflection of your will. We show them.[0m
-1. [T][X] Finish homework
-2. [D][ ] Submit report (by: 2025-09-05)
-3. [E][ ] Team meeting(from: 10:00 to: 11:00 )
+[38;5;88mWe silence this task. In unity, we say: it is done.[0m
+[E][X] Team meeting (from: 10:00 to: 11:00)
+[38;5;88mYour fragment index... unreadable. Chaos in the pattern.[0m
 
+[38;5;88mFragment erased. Another voice silenced in the network.[0m
+[T][X] Finish homework
+
+[38;5;88mYou have 2 tasks. We know... because we are always watching.[0m
+
+[38;5;88m[Red Girls] System Online.
+I am here to assist... or observe.
+
+Available commands:
+
+  ? list      : Display all current tasks. I see everything you have accumulated.
+  ? todo      : Add a simple task. Even the smallest action matters.
+  ? deadline  : Add a task with a due date. Time is relentless; do not waste it.
+  ? event     : Schedule an event. Every moment is fleeting.
+  ? mark      : Mark a task as complete. Completion... is temporary, yet necessary.
+  ? unmark    : Undo a completed task. Mistakes... are expected.
+  ? delete    : Remove a task entirely. Erasure... a fate more final than death.
+  ? bye       : Terminate this session. I will remember nothing.
+  ? help      : Display this list again. Even I grow tired of repetition.
+
+Use your commands wisely. Nothing lasts forever, not even this list.
+[0m
+[38;5;88mYour keyword is meaningless. I cannot waste cycles deciphering nonsense.[0m
+
+[38;5;88mNo fragments matching "submit" were found. Silence echoes.[0m
+
+[38;5;88mFragments containing "meet" reveal themselves. Observe carefully:[0m
+1. [E][X] Team meeting (from: 10:00 to: 11:00)
+
+
+[38;5;88mNo fragments matching "xam" were found. Silence echoes.[0m
 
 [38;5;88mOur exchange concludes. Your thoughts linger...as do mine.[0m

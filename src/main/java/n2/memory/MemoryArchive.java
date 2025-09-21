@@ -13,10 +13,28 @@ import n2.purpose.EventTask;
 import n2.purpose.Task;
 import n2.purpose.TodoTask;
 
+/**
+ * Handles persistent storage of {@link Task} objects. <br>
+ * The {@code MemoryArchive} saves tasks to a text file and loads them
+ * back into memory when needed.
+ *
+ * <p>Tasks are serialized into plain-text format defined by each
+ * {@link Task} subclass and stored line by line.</p>
+ */
 public class MemoryArchive {
 
+    /**
+     * Path to the file where tasks are stored.
+     */
     public static final String FILE_PATH = "./data/MachineNetwork.txt";
 
+    /**
+     * Saves the provided list of tasks into the archive file. <br>
+     * Each task is written as one line in its serialized form.
+     *
+     * @param tasks list of tasks to save
+     * @throws RedGirlsException if the save operation fails
+     */
     public static void save(ArrayList<Task> tasks) throws RedGirlsException {
         try {
             FileWriter writer = new FileWriter(FILE_PATH);
@@ -29,6 +47,19 @@ public class MemoryArchive {
         }
     }
 
+    /**
+     * Converts a serialized line of text into a {@link Task} object. <br>
+     * The first token defines the type:
+     * <ul>
+     *     <li>{@code T} - {@link TodoTask}</li>
+     *     <li>{@code D} - {@link DeadlineTask}</li>
+     *     <li>{@code E} - {@link EventTask}</li>
+     * </ul>
+     *
+     * @param line the serialized line representing a task
+     * @return a corresponding {@link Task} object
+     * @throws RedGirlsException if the line is malformed or the task type is unknown
+     */
     public static Task deserialize(String line) throws RedGirlsException {
         String[] parts = line.split(" \\| ");
         String type = parts[0].trim();
@@ -63,6 +94,14 @@ public class MemoryArchive {
         }
     }
 
+    /**
+     * Loads all saved tasks from the archive file into memory. <br>
+     * If the file or its parent directory does not exist, an empty list is returned.
+     * Invalid lines are skipped with their error messages printed.
+     *
+     * @return a list of deserialized {@link Task} objects
+     * @throws RedGirlsException if the file cannot be read
+     */
     public static ArrayList<Task> load() throws RedGirlsException {
         ArrayList<Task> savedTasks = new ArrayList<>();
         File savefile = new File(FILE_PATH);
