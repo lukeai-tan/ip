@@ -122,19 +122,6 @@ public class RedGirlsException extends Exception {
     }
 
     /**
-     * Creates an exception indicating the missing end time of an event task.
-     *
-     * <p>
-     * This exception is thrown when the end time of an event task is null or empty.
-     * </p>
-     *
-     * @return {@code RedGirlsException} for missing event end time
-     */
-    public static RedGirlsException missingEventEndTime() {
-        return new RedGirlsException("You forget its end. Then it shall stretch into eternity.");
-    }
-
-    /**
      * Creates an exception indicating an invalid delete command.
      *
      * <p>

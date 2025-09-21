@@ -56,6 +56,9 @@ public class DateConverter {
             DateTimeFormatter.ofPattern("d MMM yyyy, h:mma", Locale.US);
 
     public static Object parseDateTime(String rawDateString) {
+        if (rawDateString.isEmpty()) {
+            return rawDateString;
+        }
         rawDateString = rawDateString
                 .replaceAll("(?i)am", "AM")
                 .replaceAll("(?i)pm", "PM");

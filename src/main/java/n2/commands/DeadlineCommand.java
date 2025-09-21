@@ -40,19 +40,28 @@ public class DeadlineCommand extends Command {
      * @throws RedGirlsException if the deadline is missing or invalid
      */
     private void handleDeadlineTaskInput(String input) throws RedGirlsException {
-        String[] parts = input
-                .substring(input.indexOf(" ") + 1)
-                .split("/by", 2);
-        String description = parts[0].trim();
-        String deadline = (parts.length > 1) ? parts[1].trim() : null;
+        String rawArgs = input.substring(input.indexOf(" ") + 1).trim();
 
-        deadline = DateConverter.handleDateTimeParsing(deadline);
+        String[] parts = rawArgs.split("/by", 2);
 
-        if (deadline != null && !deadline.isEmpty()) {
-            deadlineTask = new DeadlineTask(description, deadline);
-        } else {
+        if (parts.length < 2 || parts[1].trim().isEmpty()) {
             throw RedGirlsException.invalidDeadlineTask();
         }
+
+        String description = parts[0].trim();
+        String deadlineRaw = parts[1].trim();
+
+        if (description.isEmpty()) {
+            throw RedGirlsException.invalidDeadlineTask();
+        }
+
+        String deadline = DateConverter.handleDateTimeParsing(deadlineRaw);
+
+        if (deadline == null || deadline.isEmpty()) {
+            throw RedGirlsException.invalidDeadlineTask();
+        }
+
+        deadlineTask = new DeadlineTask(description, deadline);
     }
 
     /**

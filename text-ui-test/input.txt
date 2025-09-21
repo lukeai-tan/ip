@@ -1,8 +1,19 @@
 todo Finish homework
+todo
 deadline Submit report /by 2025-09-05
+deadline
 event Team meeting /from 10:00 /to 11:00
+event
+event CS2113 exam /from 12.00
 list
 mark 1
 unmark 2
-list
+mark 3
+unmark 5
+delete 1
+help
+find
+find submit
+find meet
+find xam
 bye

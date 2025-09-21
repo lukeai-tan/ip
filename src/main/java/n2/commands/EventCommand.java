@@ -41,26 +41,30 @@ public class EventCommand extends Command {
      * @throws RedGirlsException if the event description or times are missing or invalid
      */
     private void handleEventTaskInput(String input) throws RedGirlsException {
-        String[] parts = input
-                .substring(input.indexOf(" ") + 1)
-                .split("/from", 2);
-        String description = parts[0].trim();
+        String trimmed = input.trim();
 
-        if (parts.length < 2) {
+        if (trimmed.equals("event")) {
             throw RedGirlsException.invalidEventTask();
         }
-        String[] timeParts = parts[1].split("/to", 2);
-        String from = timeParts[0].trim();
-        String to = (timeParts.length > 1) ? timeParts[1].trim() : null;
 
-        from = DateConverter.handleDateTimeParsing(from);
-        to = DateConverter.handleDateTimeParsing(to);
+        String content = trimmed.substring(trimmed.indexOf(" ") + 1);
 
-        if (to != null && !to.isEmpty()) {
-            eventTask = new EventTask(description, from, to);
-        } else {
-            throw RedGirlsException.missingEventEndTime();
+        if (!content.contains("/from") || !content.contains("/to")) {
+            throw RedGirlsException.invalidEventTask();
         }
+
+        String[] parts = content.split("/from", 2);
+        String description = parts[0].trim();
+        String[] timeParts = parts[1].split("/to", 2);
+
+        String from = DateConverter.handleDateTimeParsing(timeParts[0].trim());
+        String to = DateConverter.handleDateTimeParsing(timeParts[1].trim());
+
+        if (description.isEmpty() || from.isEmpty() || to.isEmpty()) {
+            throw RedGirlsException.invalidEventTask();
+        }
+
+        eventTask = new EventTask(description, from, to);
     }
 
     /**

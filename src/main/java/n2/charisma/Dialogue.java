@@ -12,7 +12,14 @@ package n2.charisma;
  * </p>
  */
 public class Dialogue {
+    /**
+     * Delay specifically for printing the boot sequence
+     */
     private static final int BOOT_DELAY_MS = 200;
+
+    /**
+     * Delay specifically for creating an illusion of a typing effect
+     */
     private static final int TYPING_DELAY_MS = 5;
 
     /**
