@@ -19,15 +19,15 @@ import n2.commands.MarkCommand;
  *
  * <p>Supported commands include:
  * <ul>
- *     <li>{@code list} – displays all tasks</li>
- *     <li>{@code mark}/{@code unmark} – marks or unmarks a task</li>
- *     <li>{@code deadline} – creates a {@link n2.purpose.DeadlineTask}</li>
- *     <li>{@code event} – creates an {@link n2.purpose.EventTask}</li>
- *     <li>{@code todo} – creates a {@link n2.purpose.TodoTask}</li>
- *     <li>{@code delete} – removes a task</li>
- *     <li>{@code find} – searches tasks by keyword</li>
- *     <li>{@code help} – shows available commands</li>
- *     <li>{@code bye} – exits the program</li>
+ *     <li>{@code list} - displays all tasks</li>
+ *     <li>{@code mark}/{@code unmark} - marks or unmarks a task</li>
+ *     <li>{@code deadline} - creates a {@link n2.purpose.DeadlineTask}</li>
+ *     <li>{@code event} - creates an {@link n2.purpose.EventTask}</li>
+ *     <li>{@code todo} - creates a {@link n2.purpose.TodoTask}</li>
+ *     <li>{@code delete} - removes a task</li>
+ *     <li>{@code find} - searches tasks by keyword</li>
+ *     <li>{@code help} - shows available commands</li>
+ *     <li>{@code bye} - exits the program</li>
  * </ul>
  * </p>
  */
