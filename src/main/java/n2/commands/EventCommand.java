@@ -41,31 +41,75 @@ public class EventCommand extends Command {
      * @throws RedGirlsException if the event description or times are missing or invalid
      */
     private void handleEventTaskInput(String input) throws RedGirlsException {
-        String trimmed = input.trim();
+        String content = extractEventContent(input);
+        String[] parts = extractDescriptionAndTimes(content);
+        String description = parts[0];
+        String from = DateConverter.handleDateTimeParsing(parts[1]);
+        String to = DateConverter.handleDateTimeParsing(parts[2]);
 
+        validateEventParts(description, from, to);
+        eventTask = new EventTask(description, from, to);
+    }
+
+    /**
+     * Parses the input to separate the "event" command from the input string
+     *
+     * @param input raw input string
+     * @return string without "event" command
+     * @throws RedGirlsException if the event command is not correctly defined
+     */
+    private String extractEventContent(String input) throws RedGirlsException {
+        String trimmed = input.trim();
         if (trimmed.equals("event")) {
             throw RedGirlsException.invalidEventTask();
         }
+        return trimmed.substring(trimmed.indexOf(" ") + 1);
+    }
 
-        String content = trimmed.substring(trimmed.indexOf(" ") + 1);
+    /**
+     * Parses the input to extract the description, from and to strings.
+     *
+     * @param content raw string containing event task parameters
+     * @return String type array containing {@code description}, {@code from} and {@code to} strings
+     */
+    private String[] extractDescriptionAndTimes(String content) {
+        final String FROM = "/from";
+        final String TO = "/to";
+        int fromIndex = content.indexOf(FROM);
+        int toIndex = content.indexOf(TO);
 
-        if (!content.contains("/from") || !content.contains("/to")) {
-            throw RedGirlsException.invalidEventTask();
+        String description, fromRaw, toRaw;
+        if (fromIndex < toIndex) {
+            description = content.substring(0, fromIndex).trim();
+            fromRaw = content.substring(fromIndex + FROM.length(), toIndex).trim();
+            toRaw = content.substring(toIndex + TO.length()).trim();
+        } else {
+            description = content.substring(0, toIndex).trim();
+            toRaw = content.substring(toIndex + TO.length(), fromIndex).trim();
+            fromRaw = content.substring(fromIndex + FROM.length()).trim();
         }
 
-        String[] parts = content.split("/from", 2);
-        String description = parts[0].trim();
-        String[] timeParts = parts[1].split("/to", 2);
+        return new String[]{description, fromRaw, toRaw};
+    }
 
-        String from = DateConverter.handleDateTimeParsing(timeParts[0].trim());
-        String to = DateConverter.handleDateTimeParsing(timeParts[1].trim());
+    /**
+     * Validates that the description, from and to strings are in valid form.
+     * Otherwise, the event task is invalid.
+     *
+     * @param description description of the event task
+     * @param from starting time/point of the event
+     * @param to ending time/point of the event
+     * @throws RedGirlsException if the {@code description}, {@code from} or {@code to} strings are of invalid format
+     */
+    private void validateEventParts(String description, String from, String to) throws RedGirlsException {
         if (description.isEmpty()) {
             throw RedGirlsException.invalidEventTask();
-        } else if (from.isEmpty() || to.isEmpty()) {
+        }
+        if (from.isEmpty() || to.isEmpty()) {
             throw RedGirlsException.missingEventTime();
         }
-        eventTask = new EventTask(description, from, to);
     }
+
 
     /**
      * Executes the {@code event} command.

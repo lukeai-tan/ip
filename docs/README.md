@@ -31,7 +31,9 @@ Red Girls ensures that even the smallest motion is recorded, monitored, and reme
 - [Command Summary](#command-summary)
 
 ## Quick Start
-1. Ensure you have Java 17 or above installed.
+1. Ensure you have Java 17 or above installed in your computer.\
+   **Mac users**: Ensure you have th precise JDK version prescribed
+   [here](https://se-education.org/guides/tutorials/javaInstallationMac.html).
 2. Download the latest `RedGirls.jar`.
 3. Open a terminal in the folder containing the JAR.
 4. Run:
@@ -49,8 +51,25 @@ Red Girls ensures that even the smallest motion is recorded, monitored, and reme
    - `list` : Lists all tasks
    - `delete 1` : Deletes the 1st task on the current task list
    - `bye` : Exits the application
+6. Refer to the [Features](#features) below for details of each command.
 
 ## Features
+>> **Notes about the command format**
+>>
+>> - Words in **UPPER_CASE** are placeholders that must be supplied by you.  
+>> Example: `todo DESCRIPTION` → `todo Investigate machine lifeform patterns`
+>>
+>> - Parameters can appear in **any order** when multiple are allowed.  
+>> Example: `/from START /to END` could be written `/to END /from START`
+>>
+>> - Extra words for commands that do not take parameters (like `help`, `list`, `bye`) will render the command invalid.  
+>> Example: `help now` will be recognized by Red Girls as an unknown command
+>>
+>> - If you are using a PDF version of this document, be careful when copying and pasting
+>> commands that span multiple lines as space characters surrounding line-breaks may be
+>> omitted when copied over to the application.
+ 
+
 ### Adding a todo : `todo`
 Adds a simple task with only a description.
 
