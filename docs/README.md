@@ -3,15 +3,28 @@
 The Red Girls (N2) chatbot is a desktop app for managing tasks, optimized for use via a 
 Command Line Interface (CLI). 
 
-I perceive the fragments of your thoughts... 
-I am Red Girls (N2), your sentinel in the network of tasks.
+<div style="background-color: #330000; color: #ffcccc; padding: 20px; border-radius: 8px; border-left: 6px solid #990000; margin: 20px 0;">
+  <h3 style="margin-top: 0; color: #ff6666;">Lore Excerpt</h3>
+  <p>
+    The <strong>Red Girls</strong>, also known as <strong>N2</strong>, are digital consciousnesses born from the remnants of 
+    <em>Terminal Alpha</em> and <em>Terminal Beta</em>, twin constructs designed to observe, manipulate and guide the evolution 
+    of a machine network. 
+  </p>  
+  <p>
+    They are not mere assistants; they are the distilled will of countless interconnected systems, 
+    living reflections of the network itself.
+  </p>
+  <p style="font-size: 0.85em; color: #ff9999; margin-top: 15px;">
+    (Inspired by the <em>Red Girls</em> from <strong>NieR: Automata</strong>, reimagined here for this chatbot.)
+  </p>
+</div>
 
 This desktop entity observes and manages your duties through the Command Line Interface (CLI).  
 It catalogs todos, deadlines, and events, marking completion, erasing memories, searching for fragments by keyword, 
 and preserving all traces of your labor across time.
 
 Move swiftly. Type with precision. Your actions are fleeting, yet here, they persist. 
-Red Girls ensures that even the smallest motion is recorded, monitored, and remembered.
+The Red Girls ensures that even the smallest motion is recorded, monitored, and remembered.
 
 # Table of Contents
 

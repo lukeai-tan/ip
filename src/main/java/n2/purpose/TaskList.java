@@ -105,7 +105,7 @@ public class TaskList {
      */
     public static void printSize() {
         if (getSize() == 1) {
-            redGirlsPrint("So it begins... one task, one memory. Already, we am aware.");
+            redGirlsPrint("So it begins... one task, one memory. Already, we are aware.");
         } else {
             redGirlsPrint("You have " + getSize() + " tasks. We know... because we are always watching.");
         }
