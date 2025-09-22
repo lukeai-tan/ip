@@ -24,6 +24,7 @@ GUI apps.
    - [Finding Tasks : `find`](#finding-tasks--find)
    - [Viewing List of Commands : `help`](#viewing-list-of-commands--help)
    - [Exiting the Program : `bye`](#exiting-the-program--bye)
+   - [Saving the Data](#saving-the-data)
 - [Command Summary](#command-summary)
 
 ## Quick Start
