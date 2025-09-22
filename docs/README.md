@@ -220,6 +220,9 @@ Format:
 ```
 find KEYWORD
 ```
+- The search is case-insensitive. e.g. `nier` will match `NIER`
+- Partial keywords will be matched. e.g. `mach` will match `machine`
+- All task entries matching the keyword will be returned.
 
 Example:
 ```
