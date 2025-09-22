@@ -241,6 +241,10 @@ Expected output:
 Our exchange concludes. Your thoughts linger...as do mine.
 ```
 
+### Saving the Data
+The task data is saved in the hard disk automatically after each command is entered.\
+There is no need to save manually.
+
 # Command Summary
 
 | Action          | Command    | Format                                 | Example                                                             |
