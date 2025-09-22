@@ -10,6 +10,22 @@ persists across sessions.
 If you can type fast, Red Girls can help you manage your tasks faster than traditional
 GUI apps.
 
+# Table of Contents
+
+- [Quick Start](#quick-start)
+- [Features](#features)
+   - [Adding a todo : `todo`](#adding-a-todo--todo)
+   - [Adding a deadline : `deadline`](#adding-a-deadline--deadline)
+   - [Adding an event: `event`](#adding-an-event-event)
+   - [Listing All Tasks : `list`](#listing-all-tasks--list)
+   - [Marking tasks : `mark`](#marking-tasks--mark)
+   - [Unmarking tasks : `unmark`](#unmarking-tasks--unmark)
+   - [Deleting Tasks : `delete`](#deleting-tasks--delete)
+   - [Finding Tasks : `find`](#finding-tasks--find)
+   - [Viewing List of Commands : `help`](#viewing-list-of-commands--help)
+   - [Exiting the Program : `bye`](#exiting-the-program--bye)
+- [Command Summary](#command-summary)
+
 ## Quick Start
 1. Ensure you have Java 17 or above installed.
 2. Download the latest `RedGirls.jar`.
@@ -92,7 +108,7 @@ You have 3 tasks. We know... because we are always watching.
 ```
 
 ### Listing All Tasks : `list`
-Prints out the entire list of tasks.
+Shows all current tasks.
 
 Format:
 ```
@@ -108,7 +124,7 @@ Your tasks surface. Each one, a reflection of your will. We show them.
 ```
 
 ### Marking tasks : `mark`
-Marks a task, setting its completion status as complete.
+Marks the task at the given index as complete.
 
 Format:
 ```
@@ -127,7 +143,7 @@ We silence this task. In unity, we say: it is done.
 ```
 
 ### Unmarking tasks : `unmark`
-Unmarks a task, setting its completion status as incomplete.
+Marks the task at the given index as incomplete.
 
 Format:
 ```
@@ -146,7 +162,7 @@ You deny its completion. Strange... but we obey.
 ```
 
 ### Deleting Tasks : `delete`
-Deletes a task from the task list.
+Deletes the task at the given index.
 
 Format:
 ```
@@ -166,7 +182,7 @@ You have 2 tasks. We know... because we are always watching.
 ```
 
 ### Finding Tasks : `find`
-Searching for tasks containing a specific keyword.
+Lists all tasks that contain the given keyword.
 
 Format:
 ```
@@ -185,7 +201,7 @@ Fragments containing "meeting" reveal themselves. Observe carefully:
 ```
 
 ### Viewing List of Commands : `help`
-Reveals the commands available.
+Shows a list of all available commands.
 
 Format:
 ```
@@ -224,3 +240,18 @@ Expected output:
 ```
 Our exchange concludes. Your thoughts linger...as do mine.
 ```
+
+# Command Summary
+
+| Action          | Command    | Format                                 | Example                                                             |
+|-----------------|-----------|----------------------------------------|---------------------------------------------------------------------|
+| Add Todo        | `todo`    | `todo DESCRIPTION`                      | `todo Investigate machine lifeform patterns`                        |
+| Add Deadline    | `deadline`| `deadline DESCRIPTION /by DATE`         | `deadline Upload combat data /by 30/09/2025`                        |
+| Add Event       | `event`   | `event DESCRIPTION /from START /to END`| `event Council meeting /from 01/10/2025 10:00 /to 01/10/2025 12:00` |
+| List Tasks      | `list`    | `list`                                  | -                                                                   |
+| Mark Task       | `mark`    | `mark INDEX`                            | `mark 1`                                                            |
+| Unmark Task     | `unmark`  | `unmark INDEX`                          | `unmark 1`                                                          |
+| Delete Task     | `delete`  | `delete INDEX`                          | `delete 2`                                                          |
+| Find Tasks      | `find`    | `find KEYWORD`                          | `find meeting`                                                      |
+| Help            | `help`    | `help`                                  | -                                                                   |
+| Exit            | `bye`     | `bye`                                   | -                                                                   |
