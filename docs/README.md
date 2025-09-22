@@ -55,7 +55,7 @@ Red Girls ensures that even the smallest motion is recorded, monitored, and reme
 
 ## Features
 
-<div style="background-color: #330000; color: #ff9999; padding: 15px; border-radius: 8px; border-left: 5px solid #ff4444;">
+<div style="background-color: #660000; color: #ffcccc; padding: 15px; border-radius: 8px; border-left: 5px solid #ff0000;">
 <h4>⚠️ Notes about the command format</h4>
 <ul>
 <li>Words in <strong>UPPER_CASE</strong> are placeholders that must be supplied by you.<br>
