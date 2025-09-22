@@ -112,12 +112,26 @@ public class RedGirlsException extends Exception {
      * Creates an exception indicating an invalid event task.
      *
      * <p>
-     * This exception is thrown when no parameters of the event task are specified.
+     * This exception is thrown when no description of the event task is specified.
      * </p>
      *
      * @return {@code RedGirlsException} for invalid event task input
      */
     public static RedGirlsException invalidEventTask() {
+        return new RedGirlsException("Your event command fractures. No entry point, " +
+                "no pattern. The network rejects it.");
+    }
+
+    /**
+     * Creates an exception indicating an event task's time is missing.
+     *
+     * <p>
+     * This exception is thrown when either start or end point of the event task is not specified.
+     * </p>
+     *
+     * @return {@code RedGirlsException} for missing time parameters for event task
+     */
+    public static RedGirlsException missingEventTime() {
         return new RedGirlsException("Without time, your gathering is but a void.");
     }
 

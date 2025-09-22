@@ -59,11 +59,11 @@ public class EventCommand extends Command {
 
         String from = DateConverter.handleDateTimeParsing(timeParts[0].trim());
         String to = DateConverter.handleDateTimeParsing(timeParts[1].trim());
-
-        if (description.isEmpty() || from.isEmpty() || to.isEmpty()) {
+        if (description.isEmpty()) {
             throw RedGirlsException.invalidEventTask();
+        } else if (from.isEmpty() || to.isEmpty()) {
+            throw RedGirlsException.missingEventTime();
         }
-
         eventTask = new EventTask(description, from, to);
     }
 

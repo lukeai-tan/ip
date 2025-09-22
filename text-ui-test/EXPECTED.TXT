@@ -37,8 +37,8 @@ How intriguing. Shall we converse?[0m
 [E][ ] Team meeting (from: 10:00 to: 11:00)
 
 [38;5;88mYou have 3 tasks. We know... because we are always watching.[0m
-[38;5;88mWithout time, your gathering is but a void.[0m
-[38;5;88mWithout time, your gathering is but a void.[0m
+[38;5;88mYour event command fractures. No entry point, no pattern. The network rejects it.[0m
+[38;5;88mYour event command fractures. No entry point, no pattern. The network rejects it.[0m
 
 [38;5;88mYour tasks surface. Each one, a reflection of your will. We show them.[0m
 1. [T][ ] Finish homework
