@@ -61,8 +61,7 @@ public class MarkCommand extends Command {
         try {
             index = Integer.parseInt(parts[1]) - 1;
         } catch (NumberFormatException e) {
-            redGirlsPrint("Your fragment index... unreadable. Chaos in the pattern.");
-            return;
+            throw RedGirlsException.invalidTaskIndex();
         }
 
         if (index < 0 || index >= TaskList.getSize()) {

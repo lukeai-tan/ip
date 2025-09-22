@@ -3,12 +3,15 @@
 The Red Girls (N2) chatbot is a desktop app for managing tasks, optimized for use via a 
 Command Line Interface (CLI). 
 
-It supports adding todos, deadlines and event tasks, marking or unmarking them, deleting
-tasks, searching by keywords and saving tasks to disk automatically so that your task data
-persists across sessions.
+I perceive the fragments of your thoughts... 
+I am Red Girls (N2), your sentinel in the network of tasks.
 
-If you can type fast, Red Girls can help you manage your tasks faster than traditional
-GUI apps.
+This desktop entity observes and manages your duties through the Command Line Interface (CLI).  
+It catalogs todos, deadlines, and events, marking completion, erasing memories, searching for fragments by keyword, 
+and preserving all traces of your labor across time.
+
+Move swiftly. Type with precision. Your actions are fleeting, yet here, they persist. 
+Red Girls ensures that even the smallest motion is recorded, monitored, and remembered.
 
 # Table of Contents
 
