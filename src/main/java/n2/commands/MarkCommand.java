@@ -43,7 +43,7 @@ public class MarkCommand extends Command {
     /**
      * Parses the input string to extract the command and task index.
      *
-     * @param input raw inputs string
+     * @param input raw input string
      * @throws RedGirlsException if the input is malformed or the index is invalid
      */
     public void handleMarkInput(String input) throws RedGirlsException {

@@ -9,6 +9,8 @@ list
 mark 1
 unmark 2
 mark 3
+mark hamill
+mark wahlberg
 unmark 5
 delete 1
 help
