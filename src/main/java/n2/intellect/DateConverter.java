@@ -96,7 +96,7 @@ public class DateConverter {
             try {
                 return LocalDateTime.parse(rawDateString, pattern);
             } catch (DateTimeParseException e) {
-
+                // Ignore and try the next DATE_TIME_PATTERN
             }
         }
 
@@ -104,7 +104,7 @@ public class DateConverter {
             try {
                 return LocalDate.parse(rawDateString, pattern);
             } catch (DateTimeParseException e) {
-
+                // Ignore and try the next DATE_PATTERN
             }
         }
         return rawDateString;
