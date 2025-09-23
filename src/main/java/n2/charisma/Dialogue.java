@@ -15,12 +15,12 @@ public class Dialogue {
     /**
      * Delay specifically for printing the boot sequence
      */
-    private static final int BOOT_DELAY_MS = 200;
+    private final static int BOOT_DELAY_MS = 200;
 
     /**
      * Delay specifically for creating an illusion of a typing effect
      */
-    private static final int TYPING_DELAY_MS = 5;
+    private final static int TYPING_DELAY_MS = 5;
 
     /**
      * Applies Red Girls' dark red ANSI color to a string.
