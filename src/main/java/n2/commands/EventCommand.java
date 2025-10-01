@@ -72,11 +72,15 @@ public class EventCommand extends Command {
      * @param content raw string containing event task parameters
      * @return String type array containing {@code description}, {@code from} and {@code to} strings
      */
-    private String[] extractDescriptionAndTimes(String content) {
+    private String[] extractDescriptionAndTimes(String content) throws RedGirlsException {
         final String FROM = "/from";
         final String TO = "/to";
         int fromIndex = content.indexOf(FROM);
         int toIndex = content.indexOf(TO);
+
+        if (fromIndex == -1 || toIndex == -1) {
+            throw RedGirlsException.missingEventTime();
+        }
 
         String description, fromRaw, toRaw;
         if (fromIndex < toIndex) {
