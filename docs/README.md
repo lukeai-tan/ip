@@ -45,7 +45,7 @@ The Red Girls ensures that even the smallest motion is recorded, monitored, and 
 
 ## Quick Start
 1. Ensure you have Java 17 or above installed in your computer.\
-   **Mac users**: Ensure you have th precise JDK version prescribed
+   **Mac users**: Ensure you have the precise JDK version prescribed
    [here](https://se-education.org/guides/tutorials/javaInstallationMac.html).
 2. Download the latest `RedGirls.jar`.
 3. Open a terminal in the folder containing the JAR.
