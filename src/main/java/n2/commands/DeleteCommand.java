@@ -41,17 +41,14 @@ public class DeleteCommand extends Command {
      */
     public void handleDeleteTaskInput(String input) throws RedGirlsException {
         String[] parts = input.split("\\s+");
-        if (parts.length < 2) {
+        if (parts.length != 2) {
             throw RedGirlsException.invalidDelete();
-        }
-        if (parts.length > 2) {
-            throw RedGirlsException.invalidTaskIndex();
         }
 
         try {
             index = Integer.parseInt(parts[1]) - 1;
         } catch (NumberFormatException e) {
-            throw RedGirlsException.invalidTaskIndex();
+            throw RedGirlsException.invalidDelete();
         }
 
         if (index < 0 || index >= TaskList.getSize()) {
